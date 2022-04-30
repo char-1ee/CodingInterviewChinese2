@@ -1,5 +1,10 @@
 /**
  * Replace every space in a String with "%20".
+ * 
+ * Hints: When we merge arrays/strings or replace certain elements in array
+ * (in-place), if iterating from start to end it may duplicately move elements.
+ * If iterating backwards, we can reduce operations on array elements.
+ * 
  */
 public class Q5 {
 
@@ -19,7 +24,7 @@ public class Q5 {
     }
 
     /**
-     * O(n), backward two-pointers, in-place
+     * O(n), backward two-pointers, in-place (memory coverage)
      * Assume there input string has enough extensive upper boundary
      **/
     public static void replaceSpaces(char[] s) {
@@ -62,9 +67,12 @@ public class Q5 {
 
         for (int i = 0; i < ss.length; i++) {
             System.out.println("String " + i + " : " + Q5.replaceSpaces_slow(ss[i]));
+
             // char[] str = ss[i].toCharArray();
+            // char[] str_scaled = new char[1000000];
+            // System.arraycopy(str, 0, str_scaled, 0, str.length);
             // Q5.replaceSpaces(str);
-            // System.out.println("String " + i + " : " + new String(str));
+            // System.out.println("String " + i + " : " + new String(str_scaled));
         }
     }
 }
