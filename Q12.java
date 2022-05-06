@@ -26,7 +26,8 @@ public class Q12 {
         }
 
         // backtrack condition
-        if (row < 0 || col < 0 || row >= matrix.length || col >= matrix.length || visited[row][col]) {
+        if (row < 0 || col < 0 || row >= matrix.length || col >= matrix.length || visited[row][col]
+                || matrix[row][col] != path[len]) {
             return false;
         }
 
