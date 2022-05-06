@@ -1,10 +1,9 @@
-
 /**
  * Find minimum number in a rotated array.
  */
 public class Q11 {
     public static int findMinInRotatedArray(int[] arr) {
-        if (arr.length == 0 || arr == null) {
+        if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("Input array must not be empty.");
         }
 
