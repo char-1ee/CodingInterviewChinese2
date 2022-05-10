@@ -3,25 +3,27 @@ import utils.ListNode;
 /**
  * Delete a node in linked list in time O(1).
  */
-public class Q18 {
+public class Q18_1 {
 
+    /**
+     * Average time: O(1)
+     */
     public static ListNode delete(ListNode head, ListNode node) {
         if (head == null || node == null) {
             return null;
         }
 
-        // if node is not tail
+        // if node is not tail: O(1)
         if (node.next != null) {
             ListNode nextNode = node.next;
             node.val = nextNode.val;
             node.next = nextNode.next;
-            // nextNode = null; // deleted by GC?
         }
         // only one node and delete head node
-        else if (head == node) { //
+        else if (head == node) {
             head = head.next;
         }
-        // node is tail
+        // node is tail: O(n)
         else {
             ListNode curr = head;
             while (curr.next != node) {
@@ -95,3 +97,20 @@ public class Q18 {
         test5();
     }
 }
+
+/**
+ * -> Delete a node in O(1)
+ * -> We have to assume pToBeDelete must be in list, because checking pToBeDelete's existence must cost O(n). 
+ *    So it is delete()'s caller's job to check pToBeDelete's existence.
+ * -> Overwrite the pToBeDelete with pToBeDelete->next, then delete pToBeDelete->next: O(1)
+ * -> For tail node, we have to iterate to pToBeDelete: O(n)
+ * -> Time complexity: ((n - 1)O(1) + O(n)) / n = O(1)
+ * 
+ * Cases:
+ * 1. Multiple nodes, delete from 
+ *      - head 
+ *      - middle
+ *      - tail
+ * 2. Single node, delete head/end
+ * 3. nullptr
+ */
