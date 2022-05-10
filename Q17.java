@@ -70,7 +70,6 @@ public class Q17 {
         char[] num = new char[n];
         helper(num, n, 0);
         System.out.println();
-
     }
 
     private static void helper(char[] num, int length, int idx) {
