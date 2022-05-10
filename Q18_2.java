@@ -31,6 +31,47 @@ public class Q18_2 {
         return dummy.next;
     }
 
+    /** given by book */
+    public static ListNode deleteDuplicates_official(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode dummy = new ListNode(-1, head);
+        ListNode prev = dummy;
+
+        while (head != null) {
+            ListNode nextNode = head.next;
+            boolean needDelete = false;
+
+            if (head.next != null && nextNode.val == head.val) {
+                needDelete = true;
+            }
+
+            if (!needDelete) {
+                prev = head;
+                head = head.next;
+            } else {
+                int value = head.val;
+                ListNode toDelNode = head;
+
+                while (toDelNode != null && toDelNode.val == value) {
+                    nextNode = toDelNode.next;
+                    toDelNode = nextNode;
+                }
+
+                if (prev == null) {
+                    head = nextNode;
+                } else {
+                    prev.next = nextNode;
+                }
+
+                head = nextNode;
+            }
+        }
+        return dummy.next;
+    }
+
     /** Recursive */
     public static ListNode deleteDuplicatesRecursion(ListNode head) {
         if (head == null || head.next == null) {
