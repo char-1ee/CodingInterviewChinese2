@@ -52,6 +52,10 @@ public class ListNode {
 
     /** Create a list given a val array */
     public static ListNode createList(int[] values) {
+        if (values == null) {
+            return null;
+        }
+
         ListNode head = new ListNode();
         ListNode curr = head;
         for (int value : values) {

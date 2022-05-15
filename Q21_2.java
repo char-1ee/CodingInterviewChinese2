@@ -1,5 +1,7 @@
 /**
- * Apply Strategy Pattern: https://refactoring.guru/design-patterns/strategy
+ * Apply Strategy Pattern: 
+ * https://refactoring.guru/design-patterns/strategy
+ * shorturl.at/bftS2
  */
 interface ReorderStrategy {
     public boolean reorderRule(int[] arr, int idx);
