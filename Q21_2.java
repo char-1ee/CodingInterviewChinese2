@@ -2,11 +2,16 @@
  * Apply Strategy Pattern: 
  * https://refactoring.guru/design-patterns/strategy
  * shorturl.at/bftS2
+ * 
+ * Strategy + ConcreteStrategy + Context + Client
  */
+
+/** Strategy */
 interface ReorderStrategy {
     public boolean reorderRule(int[] arr, int idx);
 }
 
+/** ConcreteStrategy */
 class OddEvenReorderStrategy implements ReorderStrategy {
     @Override
     public boolean reorderRule(int[] arr, int idx) {
@@ -14,10 +19,11 @@ class OddEvenReorderStrategy implements ReorderStrategy {
     }
 }
 
-public class Q21_2 {
-    private ReorderStrategy reorderStrategy;
+// Context
+class Context {
+    private ReorderStrategy reorderStrategy = null;
 
-    public Q21_2(ReorderStrategy reorderStrategy) {
+    public Context(ReorderStrategy reorderStrategy) {
         this.reorderStrategy = reorderStrategy;
     }
 
@@ -30,9 +36,9 @@ public class Q21_2 {
         }
 
         for (int i = 0, j = arr.length - 1; i < j;) {
-            while (i < j && (arr[i] & 0x1) != 0)
+            while (i < j && !reorderStrategy.reorderRule(arr, i))
                 i++;
-            while (i < j && (arr[j] & 0x1) == 0)
+            while (i < j && reorderStrategy.reorderRule(arr, j))
                 j--;
 
             if (i < j) {
@@ -43,12 +49,15 @@ public class Q21_2 {
         }
         return arr;
     }
+}
 
+/** Client */
+public class Q21_2 {
     public static void main(String[] args) {
         int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
 
         ReorderStrategy reorderStrategy = new OddEvenReorderStrategy();
-        Q21_2 instance = new Q21_2(reorderStrategy);
+        Context instance = new Context(reorderStrategy);
 
         int[] newArr = instance.reorderOddEven(arr);
 
