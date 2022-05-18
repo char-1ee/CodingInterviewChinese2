@@ -51,6 +51,10 @@ public class TreeNode {
 
     /** Create a binary tree according to int array */
     public static TreeNode createTree(int[] vals) {
+        if (vals.length == 0) {
+            return null;
+        }
+
         if (vals.length < 2) {
             return new TreeNode(vals[0]);
         }
