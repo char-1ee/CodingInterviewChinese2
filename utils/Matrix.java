@@ -21,4 +21,6 @@ public class Matrix {
             m1.a11 * m2.a01 + m1.a11 * m2.a11
         );
     }
+    
+    // Transpose, Ax = B
 }
