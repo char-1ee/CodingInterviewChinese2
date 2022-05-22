@@ -50,6 +50,7 @@ public class TreeNode {
     }
 
     /** Create a binary tree according to int array */
+    // TODO: cannot resolve left-skew tree and right-skew problems
     public static TreeNode createTree(int[] vals) {
         if (vals.length == 0) {
             return null;
@@ -63,7 +64,7 @@ public class TreeNode {
         return root;
     }
 
-    public static TreeNode createTree(int[] vals, int idx) {
+    private static TreeNode createTree(int[] vals, int idx) {
         if (idx > vals.length - 1) {
             return null;
         }
@@ -75,6 +76,38 @@ public class TreeNode {
         root.left = createTree(vals, 2 * idx + 1);
         root.right = createTree(vals, 2 * idx + 2);
         return root;
+    }
+
+    /** Get a complete binary tree. */
+    public static TreeNode case1() {
+        TreeNode n1 = new TreeNode(5);
+        TreeNode n2 = new TreeNode(7);
+        TreeNode n3 = new TreeNode(9);
+        TreeNode n4 = new TreeNode(11);
+        TreeNode n5 = new TreeNode(6, n1, n2);
+        TreeNode n6 = new TreeNode(10, n3, n4);
+        TreeNode n7 = new TreeNode(8, n5, n6);
+        return n7;
+    }
+
+    /** Get a left-skew binary tree */
+    public static TreeNode case2() {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2, n1, null);
+        TreeNode n3 = new TreeNode(3, n2, null);
+        TreeNode n4 = new TreeNode(4, n3, null);
+        TreeNode n5  = new TreeNode(5, n4, null);
+        return n5;
+    }
+
+    /** Get a right-skew binary tree */
+    public static TreeNode case3() {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2, null, n1);
+        TreeNode n3 = new TreeNode(3, null, n2);
+        TreeNode n4 = new TreeNode(4, null, n3);
+        TreeNode n5  = new TreeNode(5, null, n4);
+        return n5;
     }
 
     /** unti testing */
