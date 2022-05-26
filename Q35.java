@@ -3,7 +3,9 @@ import utils.ComplexListNode;
 /**
  * Clone a complex linked list. ComplexListNode refers to utils.ComplexListNode.
  * 
- * We divide a complex problem into sub-problems by steps.
+ * To track sibling node, we can maintain a HashMap<N, N'>, or we can
+ * 
+ * divide a complex problem into sub-problems by steps.
  * (original listnode N, copy listnode N')
  * - copy N to N.next = N'
  * - copy N'.sibling = N.sibling.next

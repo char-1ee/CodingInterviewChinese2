@@ -15,7 +15,7 @@ public class TreeNode {
     }
 
     /** Print current node, left child, right child */
-    public static void printTreeNode(TreeNode root) {
+    private static void printTreeNode(TreeNode root) {
         if (root == null) {
             System.out.println("Empty node");
         } else {
