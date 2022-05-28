@@ -1,3 +1,5 @@
+package Q18;
+
 import utils.java.ListNode;
 
 /**
@@ -100,17 +102,19 @@ public class Q18_1 {
 
 /**
  * -> Delete a node in O(1)
- * -> We have to assume pToBeDelete must be in list, because checking pToBeDelete's existence must cost O(n). 
- *    So it is delete()'s caller's job to check pToBeDelete's existence.
- * -> Overwrite the pToBeDelete with pToBeDelete->next, then delete pToBeDelete->next: O(1)
+ * -> We have to assume pToBeDelete must be in list, because checking
+ * pToBeDelete's existence must cost O(n).
+ * So it is delete()'s caller's job to check pToBeDelete's existence.
+ * -> Overwrite the pToBeDelete with pToBeDelete->next, then delete
+ * pToBeDelete->next: O(1)
  * -> For tail node, we have to iterate to pToBeDelete: O(n)
  * -> Time complexity: ((n - 1)O(1) + O(n)) / n = O(1)
  * 
  * Cases:
- * 1. Multiple nodes, delete from 
- *      - head 
- *      - middle
- *      - tail
+ * 1. Multiple nodes, delete from
+ * - head
+ * - middle
+ * - tail
  * 2. Single node, delete head/end
  * 3. nullptr
  */

@@ -1,3 +1,4 @@
+package Q21;
 /**
  * Apply Strategy Pattern: 
  * https://refactoring.guru/design-patterns/strategy

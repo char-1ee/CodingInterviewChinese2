@@ -13,7 +13,7 @@ void DestroyTree(TreeNode* root) {
     TreeNode* right_tree = root->right;
 
     delete root;
-    root = nullptr;
+    root = 0; // NULL for windows, 0 for cross-platform
 
     DestroyTree(left_tree);
     DestroyTree(right_tree);
