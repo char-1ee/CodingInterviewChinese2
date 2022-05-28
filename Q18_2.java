@@ -1,4 +1,4 @@
-import utils.ListNode;
+import utils.java.ListNode;
 
 /**
  * Delete duplicate nodes in a sorted linked list.

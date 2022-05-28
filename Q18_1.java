@@ -1,4 +1,4 @@
-import utils.ListNode;
+import utils.java.ListNode;
 
 /**
  * Delete a node in linked list in time O(1).

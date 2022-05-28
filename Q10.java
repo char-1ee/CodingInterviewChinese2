@@ -1,4 +1,4 @@
-import utils.Matrix;
+import utils.java.Matrix;
 
 /**
  * Q10_1: Find the Nth in Finbonacci sequence

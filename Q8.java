@@ -1,4 +1,4 @@
-import utils.TreeNode;
+import utils.java.TreeNode;
 
 /**
  * Given a binary tree and a tree node, find its next node in the inorder

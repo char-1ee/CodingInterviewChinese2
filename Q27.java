@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-import utils.TreeNode;
+import utils.java.TreeNode;
 
 /**
  * Print out the mirror of a binary tree.

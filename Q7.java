@@ -1,4 +1,4 @@
-import utils.TreeNode;
+import utils.java.TreeNode;
 
 /**
  * Construct a binary tree according to its inorder traversal and preorder

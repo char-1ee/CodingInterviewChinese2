@@ -1,4 +1,4 @@
-import utils.ListNode;
+import utils.java.ListNode;
 
 /** 
  * If there exists loop in linked list, find the entry node of the loop.

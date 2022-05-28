@@ -1,4 +1,4 @@
-import utils.ComplexListNode;
+import utils.java.ComplexListNode;
 
 /**
  * Clone a complex linked list. ComplexListNode refers to utils.ComplexListNode.

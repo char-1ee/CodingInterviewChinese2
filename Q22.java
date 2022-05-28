@@ -1,4 +1,4 @@
-import utils.ListNode;
+import utils.java.ListNode;
 
 /**
  * Print the k-th last node in linked list

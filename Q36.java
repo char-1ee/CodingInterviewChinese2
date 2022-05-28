@@ -1,4 +1,4 @@
-import utils.TreeNode;
+import utils.java.TreeNode;
 
 /**
  * Convert a BST to a sorted bi-directional linked list.

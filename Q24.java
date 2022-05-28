@@ -1,4 +1,4 @@
-import utils.ListNode;
+import utils.java.ListNode;
 
 /**
  * reverse a linked list

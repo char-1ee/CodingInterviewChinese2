@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-import utils.TreeNode;
+import utils.java.TreeNode;
 
 /**
  * Print binary tree in level traversal order.

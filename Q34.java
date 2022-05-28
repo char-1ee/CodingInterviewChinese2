@@ -1,6 +1,6 @@
 import java.util.*;
 
-import utils.TreeNode;
+import utils.java.TreeNode;
 
 /** PathSum II */
 public class Q34 {

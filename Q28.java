@@ -1,4 +1,4 @@
-import utils.TreeNode;
+import utils.java.TreeNode;
 
 /**
  * Check whether a binary tree is Symmetric (same as mirror of self).

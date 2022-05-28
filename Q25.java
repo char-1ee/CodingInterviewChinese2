@@ -1,4 +1,4 @@
-import utils.ListNode;
+import utils.java.ListNode;
 
 /**
  * Merge two ascending sorted lists into one ascending list.

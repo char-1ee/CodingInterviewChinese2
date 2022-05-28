@@ -1,5 +1,5 @@
 import java.util.Stack;
-import utils.ListNode;
+import utils.java.ListNode;
 
 /**
  * Given a head of linked list, reversely print out value of every node.

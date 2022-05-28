@@ -1,4 +1,4 @@
-package utils;
+package utils.java;
 
 public class ComplexListNode {
     public int val;
