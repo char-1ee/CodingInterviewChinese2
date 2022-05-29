@@ -1,11 +1,3 @@
-package Q21;
-/**
- * Apply Strategy Pattern: 
- * https://refactoring.guru/design-patterns/strategy
- * shorturl.at/bftS2
- * 
- * Strategy + ConcreteStrategy + Context + Client
- */
 
 /** Strategy */
 interface ReorderStrategy {

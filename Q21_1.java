@@ -1,4 +1,3 @@
-package Q21;
 
 /**
  * Given an array, arrange all odd number in front and even number in end.

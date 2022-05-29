@@ -1,4 +1,3 @@
-package Q32;
 
 import java.util.LinkedList;
 import java.util.Queue;
