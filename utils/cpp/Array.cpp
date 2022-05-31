@@ -1,5 +1,6 @@
-#include <cstdlib>
+#include <stdlib.h>
 #include <exception>
+#include "Array.h"
 
 // Return a random number in range of [min, max]
 int Random(int min, int max) {

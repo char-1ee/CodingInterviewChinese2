@@ -3,12 +3,16 @@
 // Input array can be modified or not.
 
 #include <cstdio>
-#include "../utils/cpp/Array.h"
+#include <iostream>
+#include <string>
+#include "utils/cpp/Array.h"
+
+using namespace std;
 
 bool CheckMajority(int* arr, int length, int res);
 
-// O(N), parition + binary search
-int FindMajority(int* arr, int length) {
+// O(N), partition + binary search
+int FindMajority(int arr[], int length) {
     if (arr == nullptr || length <= 0) {
         return 0;
     }
@@ -67,8 +71,8 @@ int FindMajorityBM(int* arr, int length) {
 }
 
 // Unit testing
-void Test(char* test_name, int arr[], int length, int expected) {
-    printf("%s: \n", test_name);
+void Test(string test_name, int arr[], int length, int expected) {
+    cout << test_name << endl;
 
     printf("Solution 1: ");
     if (expected == FindMajority(arr, length)) {

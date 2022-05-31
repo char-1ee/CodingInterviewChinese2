@@ -11,7 +11,7 @@
 
 - StringBuilder vs StringBuffer
 
-  - StringBuffer has thread-safety but people realized that it costy to ensure thread safety, thus StringBuilder is promoted. 
+  - StringBuffer has thread-safety but people realized that it costy to ensure thread safety, thus StringBuilder is promoted.
 
 - Conversions
 
@@ -20,10 +20,10 @@
   String s = "";
   StringBuilder sb = new StringBuilder(s);
   StringBuffer sbr = new StringBuffer(s);
-  
+
   // StringBuilder and StringBuffer to String
   String s = sb.toString();
-  
+
   // StringBuffer and StringBuilder
   String tmp = sb.toString();
   StringBuffer sbr = new StringBuffer(tmp);
@@ -39,7 +39,7 @@
   sb.substring(int start, int end); 	// return String
   sb.reverse(); 						// return StringBuilder
   ```
-  
+
 - String and Integer conversion
 
   ```java
@@ -929,16 +929,16 @@ Client create an instance of strategy class which apply flexibly according to ar
 
   ```java
   public final class Singleton {
-  
+
       // The field must be declared volatile so that double check lock would work
       private static volatile Singleton instance;
-  
+
       public String value;
-  
+
       private Singleton(String value) {
           this.value = value;
       }
-  
+
       public static Singleton getInstance(String value) {
           Singleton result = instance;
           if (result != null) {
@@ -1131,15 +1131,24 @@ Client create an instance of strategy class which apply flexibly according to ar
 
 - File management
 
+  - Careful!
+
+    - Just `path` is a file or directory named `path` in the current directory.
+    - `./path` is a file or directory named `path` in the current directory, with the directory spelled out. The dot directory `.` represents the current directory, and `path` is the name of the file or directory within this directory.
+    - `~/path` is a shorthand for `$HOME/path` where `$HOME` is a variable which refers to your home directory. Typically your home directory will be somewhere like `/home/you` or `/Users/you` where `you` is your account name. (The command `echo "$HOME"` will display your home directory.) The expanded value is an absolute path (unless you have messed up the value of `$HOME` thoroughly), as indicated by the initial slash.
+    - `/path` is an absolute path which refers to a file or directory named `path` which is in the _root_ directory `/`. Every file on Unix is ultimately somewhere in the directory tree which starts with the root directory
+
   - ls, ls -l, ls -a
   - cp, mv
   - symlinks
   - `grep [options] pattern [files]`: pattern -> regex pattern (`^` start of a line, `$` end of a line)
+
     - case sensitive search: `grep -i "Unix" file.txt`
     - display the number of matches: `grep -c "unix" file.txt`
     - display the file names that matches the pattern: `grep -l "unix" f1 f2 f3 f4`
     - display the matched pattern" `grep -o "unix" file`
     - show the line number while displaying the output: `grep -n "unix" file`
+
   - find, wc
   - cut, cat, sort
 

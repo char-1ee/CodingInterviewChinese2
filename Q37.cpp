@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <iostream>
 #include <sstream>
-#include "../utils/cpp/TreeNode.h"
+#include "utils/cpp/TreeNode.h"
 
 using namespace std;
 

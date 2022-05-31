@@ -1,6 +1,6 @@
-#include <cstdio>;
-#include <iostream>;
-#include "TreeNode.h";
+#include <cstdio>
+#include <iostream>
+#include "TreeNode.h"
 
 using namespace std;
 
