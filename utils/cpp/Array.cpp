@@ -1,4 +1,5 @@
-#include <stdlib.h>
+#include <cstdlib>
+#include <cstdio>
 #include <exception>
 #include "Array.h"
 
@@ -14,7 +15,7 @@ void Swap(int* num1, int* num2) {
     *num2 = tmp;
 }
 
-// Random quick sort partition: reutrn the element whose location can be determined
+// Random quick sort partition: reutrn the index whose element location can be determined
 int Partition(int arr[], int length, int start, int end) {
     if (arr == nullptr || length < 0 || start < 0 || end >= length) {
         throw "Invalid parameters";
@@ -46,4 +47,14 @@ int Partition(int arr[], int length, int start, int end) {
         Swap(&arr[start], &arr[j]); // arrang smaller left, larger right
     }
     return j;
+}
+
+void PrintArray(int* arr, int length, int start, int end) {
+    if (arr == nullptr || length <= 0 || start <= 0 || end >= length || end < start) {
+        return;
+    }
+    for (int i = start; i <= end; ++i) {
+        printf("%d  ", &arr[i]);
+    }
+    printf("\n");
 }

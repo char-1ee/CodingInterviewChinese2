@@ -74,7 +74,7 @@ void Test(const string test_name, const TreeNode* root) {
         cout << "FAILED" << endl;
     }
 
-    DestroyTree(new_root);
+    DestroyTree(new_root); // TODO: undefined reference to DestroyTree(TreenNode*)
 }
 
 void Test1() {

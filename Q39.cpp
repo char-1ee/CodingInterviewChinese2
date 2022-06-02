@@ -97,7 +97,7 @@ int main(int argc, char* argv[]) {
 
     Test("Test 1", arr1, 9, 2);
     Test("Test 2", arr2, 9, 0);
-    Test("Test 3", arr3, 9, 2);
+    Test("Test 3", arr3, 9, 0);
     Test("Test 4", arr4, 1, 1);
     Test("Test 5", nullptr, 0, 0);
 
