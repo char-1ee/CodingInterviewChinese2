@@ -17,7 +17,7 @@ void Swap(int* num1, int* num2) {
 
 // Random quick sort partition: reutrn the index whose element location can be determined
 int Partition(int arr[], int length, int start, int end) {
-    if (arr == nullptr || length < 0 || start < 0 || end >= length) {
+    if (arr == nullptr || length <= 0 || start < 0 || end >= length) {
         throw "Invalid parameters";
     }
 
