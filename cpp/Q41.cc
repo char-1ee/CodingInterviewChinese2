@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// Insert O(logn), GetMedian O(1)
 template <class T> class MedianFinder {
 public:
 
