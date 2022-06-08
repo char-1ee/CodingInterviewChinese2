@@ -9,7 +9,8 @@ using namespace std;
 
 bool is_invalid_input = false;
 
-int FindMaximumSubarray(int arr[], int length) { 
+// DP explanation of Kadane's algorithm
+int FindMaximumSubarray_1(int arr[], int length) { 
     if (arr == nullptr || length <= 0) {
         is_invalid_input = true;
         return 0;
@@ -17,24 +18,41 @@ int FindMaximumSubarray(int arr[], int length) {
 
     is_invalid_input = false; // updating
 
-    int curr_max_subarray_sum = 0;
-    int res_max_subarray_sum = INT_MIN;
+    int curr_max_subarray_sum = arr[0];
+    int res_max_subarray_sum = arr[0];
     // If array contains negative while allow return subarray with length 0
     // int res_max_subarray_sum = 0;
 
-    for (int i = 0; i < length; i++) {
-        if (arr[i] <= 0) {
-            curr_max_subarray_sum = arr[i];
-        } else {
-            curr_max_subarray_sum += arr[i];
-        }
+    for (int i = 1; i < length; i++) {
+        curr_max_subarray_sum = max(curr_max_subarray_sum + arr[i], arr[i]);
+        res_max_subarray_sum = max(res_max_subarray_sum, curr_max_subarray_sum);
+    }
 
+    return res_max_subarray_sum;
+}
+
+// original Kadane's algorithm
+int FindMaximumSubarray_2(int arr[], int length) {
+    if (arr == nullptr || length <= 0) {
+        is_invalid_input = true;
+        return 0;
+    }
+
+    is_invalid_input = false;
+
+    int curr_max_subarray_sum = 0;
+    int res_max_subarray_sum = INT_MIN;
+
+    for (int i = 0; i < length; i++) {
+        curr_max_subarray_sum += arr[i]; 
+        
         if (curr_max_subarray_sum > res_max_subarray_sum) {
             res_max_subarray_sum = curr_max_subarray_sum;
-        }
+        } // updating res_max if curr_sum larger than curr res_max
 
-        // curr_max_subarray_sum = max(curr_max_subarray_sum + arr[i], arr[i]);
-        // res_max_subarray_sum = max(res_max_subarray_sum, curr_max_subarray_sum);
+        if (curr_max_subarray_sum < 0) {
+            curr_max_subarray_sum = 0;
+        } // met negative, then stop and update to 0
     }
 
     return res_max_subarray_sum;
@@ -42,9 +60,17 @@ int FindMaximumSubarray(int arr[], int length) {
 
 // ==================== unit tests ========================
 void Test(string test_name, int arr[], int length, int expected, bool expected_flag) {
-    cout << test_name << ": ";
-    int result = FindMaximumSubarray(arr, length);
-    if (expected != result && expected_flag != is_invalid_input) {
+    cout << test_name << ": \n";
+    int result1 = FindMaximumSubarray_1(arr, length);
+    if (expected != result1 && expected_flag != is_invalid_input) {
+        printf("FAILED");
+    } else {
+        printf("Passed");
+    }
+    printf("\n");
+
+    int result2 = FindMaximumSubarray_2(arr, length);
+    if (expected != result2 && expected_flag != is_invalid_input) {
         printf("FAILED");
     } else {
         printf("Passed");
