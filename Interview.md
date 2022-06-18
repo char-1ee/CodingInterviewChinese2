@@ -48,6 +48,23 @@
   String string = String.valeuOf(num);
   ```
 
+### String cpp
+
+- String concantenation
+
+  ```cpp
+  char init[] = "string to append";
+  char add[] = "string to be appended";
+
+  std::strcat(init, add);
+
+  string init("string to append");
+  string add("string to be appended");
+
+  init.append(add);
+  init += add;
+  ```
+
 ### [Hash table](https://www.cnblogs.com/three-fighter/p/15130703.html)
 
 - Hash table in Java: [HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html), [HashSet](https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html)
