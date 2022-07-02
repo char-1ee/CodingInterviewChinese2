@@ -4,8 +4,10 @@
 # Compiled Object files
 *.slo
 *.lo
+*.ko
 *.o
 *.obj
+*.elf
 
 # Precompiled Headers
 *.gch
@@ -26,10 +28,19 @@
 *.a
 *.lib
 
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
 # Executables
 *.exe
 *.out
 *.app
+*.i*86
+*.x86_64
+*.hex
 
 # Compiled class file
 *.class
