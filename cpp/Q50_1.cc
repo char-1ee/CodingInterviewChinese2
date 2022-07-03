@@ -1,5 +1,7 @@
 //==================================================================
-// Find the first not repeating character in a given string.
+// Find the first non-repeating character in a given string.
+// Given string only contains 8-bit char type elements (-127 - 127).
+// e.g. s="abaccdeff", return 'b'
 //==================================================================
 
 #include <bits/stdc++.h>

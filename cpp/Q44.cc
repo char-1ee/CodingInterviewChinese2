@@ -1,6 +1,8 @@
+//==================================================================
 // A stream of integers in serialization 012345678910111213141516...
 // Write a function, find the n-th digit in this stream.
 // e.g. 5->5, 13->1, 19->4 ... n->f(n)
+//==================================================================
 
 #include <bits/stdc++.h>
 
