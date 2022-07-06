@@ -1,4 +1,5 @@
 package java.utils;
+
 public class ListNode {
 
     public int val;
@@ -67,7 +68,7 @@ public class ListNode {
     }
 
     public static void main(String[] args) {
-        int[] vals = new int[] {1, 2, 3, 4, 5};
+        int[] vals = new int[] { 1, 2, 3, 4, 5 };
         ListNode node = createList(vals);
         printList(node);
     }

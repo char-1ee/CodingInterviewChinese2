@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TREENODE_H
+#define TREENODE_H
 
 struct TreeNode {
     int val;
@@ -10,3 +11,5 @@ struct TreeNode {
 
 void PrintTree(const TreeNode* root);
 void DestroyTree(TreeNode* root); 
+
+#endif
