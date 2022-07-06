@@ -1,8 +1,7 @@
-//==================================================================
-// Find the first non-repeating character in a given string.
-// Given string only contains 8-bit char type elements (-127 - 127).
-// e.g. s="abaccdeff", return 'b'
-//==================================================================
+// Q50_1: first character only appear once in string
+// Description: find the first non-repeating character in a given string,
+// given string only contains 8-bit char type elements (-127 - 127).
+// Example: s = "abaccdeff", return 'b'
 
 #include <bits/stdc++.h>
 

@@ -1,7 +1,6 @@
-//==================================================================
-// Find the first non-repeating character in a given character stream.
-// e.g. when read in "go", return 'g; when read in "google", return 'l'.
-//==================================================================
+// Q50_2: first character appears once in a character stream
+// Description: find the first non-repeating character in a given character stream.
+// Example: when read in "go", return 'g; when read in "google", return 'l'.
 
 #include <cstdio>
 #include <iostream>
@@ -41,7 +40,6 @@ public:
                 c = i;
             }
         }
-
         return c;
     }
 

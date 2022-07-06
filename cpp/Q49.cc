@@ -1,8 +1,7 @@
-//==================================================================
-// Ugly number aree defined as numbers that onyl containns factors 2, 3, 5,
-// and counted from 1, 2, 3, 4, 5, 6 ...
-// Given index n, write a function returns the n-th ugly number.
-//==================================================================
+// Q49: Ugly number
+// Description: Ugly number are defined as numbers that only containns factors 2, 3, 5,
+// and counted from 1, 2, 3, 4, 5, 6 ... 
+// given index n, write a function returns the n-th ugly number.
 
 #include <bits/stdc++.h>
 

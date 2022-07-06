@@ -1,4 +1,6 @@
-// Find the length of longest substring without duplicates in given string.
+// Q48: Longest substring without repeating character.
+// Description: find the length of longest substring without duplicates in given string.
+// Example:in "arabcacfr", return 4, "acfr"
 
 #include <bits/stdc++.h>
 using namespace std;

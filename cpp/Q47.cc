@@ -1,3 +1,9 @@
+// Q47: Max value of gifts
+// Given a mxn grid in which every block places a gift with a value (>0),
+// it requires to move starts from (0, 0) to (m-1, n-1). Everytime can only move right or down.
+// Given the grid rows and cols, calculate the max value of gifts.
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
