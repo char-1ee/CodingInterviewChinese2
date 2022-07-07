@@ -1,6 +1,6 @@
+#include "List.h"
 #include <cstdio>
 #include <iostream>
-#include "List.h"
 
 // Insert a new node into the end of list
 void AddToTail(ListNode** root, int new_value) {
@@ -29,7 +29,7 @@ void PrintList(ListNode* root) {
         curr = curr->next;
     }
     std::cout << curr->val << std::endl;
-}   
+}
 
 // Create a linked list given a value list
 ListNode* CreateList(int values[], int length) {
@@ -37,24 +37,24 @@ ListNode* CreateList(int values[], int length) {
         return nullptr;
     }
 
-    ListNode *head = new ListNode();
-    ListNode *curr = head;
+    ListNode* head = new ListNode();
+    ListNode* curr = head;
 
     for (int i = 0; i < length; i++) {
         ListNode* node = new ListNode(values[i]);
         curr->next = node;
-        curr = node;
+        curr = curr->next;
     }
 
-    return head->next;
+    return head->next; 
 }
 
 // Destroy the list
-void DestroyList(ListNode* head) {
-    ListNode *curr = head;
-    while (curr != nullptr) {
-        head = head->next;
-        delete head;
-        curr = head;
-    }
-}
+// void DestroyList(ListNode* head) {
+//     ListNode* curr = head;
+//     while (curr != nullptr) {
+//         head = head->next;
+//         delete head;
+//         curr = head;
+//     }
+// }

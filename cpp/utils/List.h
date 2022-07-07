@@ -15,6 +15,6 @@ void PrintList(ListNode *root);
 
 ListNode *CreateList(int values[], int length);
 
-void DestroyList(ListNode *head);
+// void DestroyList(ListNode *head);
 
 #endif
