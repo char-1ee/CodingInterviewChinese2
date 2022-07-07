@@ -98,9 +98,9 @@ int main(int argc, char** argv) {
     Test("Test 1", 5, 1);
     Test("Test 2", 10, 2);
     Test("Test 3", 55, 16);
-    Test("Test 4", 99, 20);       // functional test
+    Test("Test 4", 99, 20); // functional test
     Test("Test 5", 1, 1);
-    Test("Test 6", 0, 0);         // boundary test
+    Test("Test 6", 0, 0); // boundary test
     Test("Test 7", 10000, 4001);
     Test("Test 8", 21345, 18821); // performance test
 

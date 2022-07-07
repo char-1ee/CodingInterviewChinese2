@@ -1,5 +1,5 @@
 // Q51: inversion pair in array
-// Description: given an array, return the count of inversion pairs 
+// Description: given an array, return the count of inversion pairs
 // (a[x], a[y]) in which x < y and a[x] > a[y] in array.
 // Example: {7, 5, 6, 4}, (7,6), (7,5), (7,4), (6,4), (5,4), return 5.
 
@@ -7,26 +7,24 @@
 
 using namespace std;
 
-int InversePairsHelper(int *data, int *copy, int start, int end);
+int FindInversionPairsHelper(int* data, int* copy, int start, int end);
 
-int InversionPairs(int *data, int length) {
-    if (data == nullptr || length < 2)
-        return -1;
+int FindInversionPairs(int* data, int length) {
+    if (data == nullptr || length < 2) return -1;
 
-    if (length == 2)
-        return (data[0] > data[1]) ? 1 : 0;
+    if (length == 2) return (data[0] > data[1]) ? 1 : 0;
 
     int* copy = new int[length];
     for (int i = 0; i < length; i++) {
         copy[i] = data[i];
     }
 
-    int res = InversePairsHelper(data, copy, 0, length - 1);
+    int res = FindInversionPairsHelper(data, copy, 0, length - 1);
     delete[] copy;
     return res;
 }
 
-int InversePairsHelper(int* data, int* copy, int start, int end) {
+int FindInversionPairsHelper(int* data, int* copy, int start, int end) {
     if (start == end) {
         copy[end] = data[end];
         return 0;
@@ -34,12 +32,12 @@ int InversePairsHelper(int* data, int* copy, int start, int end) {
 
     // Divide, swap copy[] and data[] position when pass as parameters
     int mid = start + (end - start) / 2;
-    int left_count = InversePairsHelper(copy, data, start, mid);
-    int right_count = InversePairsHelper(copy, data, mid + 1, end);
+    int left_count = FindInversionPairsHelper(copy, data, start, mid);
+    int right_count = FindInversionPairsHelper(copy, data, mid + 1, end);
 
     // Conquer and merge
-    int left_ptr = mid;  // point to the last number of left subarray
-    int right_ptr = end;  // point to the last number of right subarray
+    int left_ptr = mid; // point to the last number of left subarray
+    int right_ptr = end; // point to the last number of right subarray
 
     int index = end; // pointer of new sorted array (copy[])
     int count = 0; // count of inversion pairs
@@ -64,8 +62,8 @@ int InversePairsHelper(int* data, int* copy, int start, int end) {
 }
 
 // ===== Test methods =====
-void Test(string test_name, int *data, int length, int expected) {
-    if (InversionPairs(data, length) == expected) {
+void Test(string test_name, int* data, int length, int expected) {
+    if (FindInversionPairs(data, length) == expected) {
         cout << test_name << ": Passed." << endl;
     } else {
         cout << test_name << ": FAILED." << endl;
@@ -74,49 +72,49 @@ void Test(string test_name, int *data, int length, int expected) {
 
 // Normal case
 void Test1() {
-    int data[] = { 1, 2, 3, 4, 7, 6, 5 };
+    int data[] = {1, 2, 3, 4, 7, 6, 5};
     int expected = 3;
     Test("Test1", data, sizeof(data) / sizeof(int), expected);
 }
 
 // Descending case
 void Test2() {
-    int data[] = { 6, 5, 4, 3, 2, 1 };
+    int data[] = {6, 5, 4, 3, 2, 1};
     int expected = 15;
     Test("Test2", data, sizeof(data) / sizeof(int), expected);
 }
 
 // Ascending case
 void Test3() {
-    int data[] = { 1, 2, 3, 4, 5, 6 };
+    int data[] = {1, 2, 3, 4, 5, 6};
     int expected = 0;
     Test("Test3", data, sizeof(data) / sizeof(int), expected);
 }
 
 // Only 1 element
 void Test4() {
-    int data[] = { 1 };
+    int data[] = {1};
     int expected = -1;
     Test("Test4", data, sizeof(data) / sizeof(int), expected);
 }
 
 // Only two elements (0 pair)
 void Test5() {
-    int data[] = { 1, 2 };
+    int data[] = {1, 2};
     int expected = 0;
     Test("Test5", data, sizeof(data) / sizeof(int), expected);
 }
 
 // Only two elements (1 pair)
 void Test6() {
-    int data[] = { 2, 1 };
+    int data[] = {2, 1};
     int expected = 1;
     Test("Test6", data, sizeof(data) / sizeof(int), expected);
 }
 
 // Duplicates
 void Test7() {
-    int data[] = { 1, 2, 1, 2, 1 };
+    int data[] = {1, 2, 1, 2, 1};
     int expected = 3;
     Test("Test7", data, sizeof(data) / sizeof(int), expected);
 }

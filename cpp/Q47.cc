@@ -51,13 +51,13 @@ int GetMaxValue_02(const int* values, int rows, int cols) {
     if (values == nullptr || rows < 1 || cols < 1) {
         return 0;
     }
-    
-    int *dp = new int[cols];
+
+    int* dp = new int[cols];
 
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
             int left = (j > 0) ? dp[j - 1] : 0; // f[i][j - 1]
-            int up = (i > 0) ? dp[j] : 0;   // f[i - 1][j]
+            int up = (i > 0) ? dp[j] : 0; // f[i - 1][j]
 
             dp[j] = max(left, up) + values[i * cols + j];
         }
@@ -84,52 +84,34 @@ void Test(string test_name, const int* values, int rows, int cols, int expected)
     }
 }
 
-void Test1(){
-    int values[][3] = {
-        { 1, 2, 3 },
-        { 4, 5, 6 },
-        { 7, 8, 9 }
-    };
+void Test1() {
+    int values[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int expected = 29;
-    Test("Test 1", (const int*) values, 3, 3, expected);
+    Test("Test 1", (const int*)values, 3, 3, expected);
 }
 
 void Test2() {
-    int values[][4] = {
-        { 1, 10, 3, 8 },
-        { 12, 2, 9, 6 },
-        { 5, 7, 4, 11 },
-        { 3, 7, 16, 5 }
-    };
+    int values[][4] = {{1, 10, 3, 8}, {12, 2, 9, 6}, {5, 7, 4, 11}, {3, 7, 16, 5}};
     int expected = 53;
-    Test("Test 2", (const int*) values, 4, 4, expected);
+    Test("Test 2", (const int*)values, 4, 4, expected);
 }
 
 void Test3() {
-    int values[][4] = {
-        { 1, 10, 3, 8 }
-    };
+    int values[][4] = {{1, 10, 3, 8}};
     int expected = 22;
-    Test("Test 3", (const int*) values, 1, 4, expected);
+    Test("Test 3", (const int*)values, 1, 4, expected);
 }
 
 void Test4() {
-    int values[4][1] = {
-        { 1 },
-        { 12 },
-        { 5 },
-        { 3 }
-    };
+    int values[4][1] = {{1}, {12}, {5}, {3}};
     int expected = 21;
-    Test("Test 4", (const int*) values, 4, 1, expected);
+    Test("Test 4", (const int*)values, 4, 1, expected);
 }
 
 void Test5() {
-    int values[][1] = {
-        { 3 }
-    };
+    int values[][1] = {{3}};
     int expected = 3;
-    Test("Test 5", (const int*) values, 1, 1, expected);
+    Test("Test 5", (const int*)values, 1, 1, expected);
 }
 
 void Test6() {

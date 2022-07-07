@@ -10,8 +10,11 @@ struct ListNode {
 };
 
 void AddToTail(ListNode** root, int new_value);
+
 void PrintList(ListNode *root);
+
 ListNode *CreateList(int values[], int length);
+
 void DestroyList(ListNode *head);
 
 #endif

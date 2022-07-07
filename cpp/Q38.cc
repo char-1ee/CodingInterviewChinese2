@@ -1,5 +1,5 @@
 // permutation of string
-// backtracking: for a sub problem/problem, swap the beginning char with all chars 
+// backtracking: for a sub problem/problem, swap the beginning char with all chars
 // after itself to get new permutations.
 
 #include <cstdio>
@@ -20,14 +20,14 @@ void Permutation(char* s, char* start) {
         printf("%s\n", s);
         return;
     }
-    
+
     for (char* c = start; *c != '\0'; ++c) {
         // swap char value of pStart and a position after pStart
         char tmp = *c;
         *c = *start;
         *start = tmp;
 
-        Permutation(s, start + 1); 
+        Permutation(s, start + 1);
 
         // backtracking
         tmp = *c;
@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
     char s2[] = "abc";
     char s3[] = "a";
     char s4[] = "";
-    
+
     Test(s1);
     Test(s2);
     Test(s3);

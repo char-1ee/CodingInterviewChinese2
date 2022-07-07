@@ -7,8 +7,7 @@ using namespace std;
 
 // Sliding window
 int LongestSubStrinigWithoutDuplicates_solution1(const string& s) {
-    if (s.length() < 2)
-        return s.length();
+    if (s.length() < 2) return s.length();
 
     int res = 0; // the max length of qualified substring
     vector<int> pos(26);
@@ -18,7 +17,7 @@ int LongestSubStrinigWithoutDuplicates_solution1(const string& s) {
             pos[s[j] - 'a']--;
             j++;
         }
-        
+
         pos[s[i] - 'a']++;
         res = max(res, i - j + 1);
     }
@@ -27,25 +26,22 @@ int LongestSubStrinigWithoutDuplicates_solution1(const string& s) {
 
 // DP
 int LongestSubStrinigWithoutDuplicates_solution2(const string& s) {
-    if (s.length() < 2) 
-        return s.length();
+    if (s.length() < 2) return s.length();
 
-    int max_length = 0;     // result max length
-    int curr_length = 0;    // f(i - 1), update as f(i) for each iteration
-    int *pos = new int[26]; // map(char -> index where it appears in string)
+    int max_length = 0; // result max length
+    int curr_length = 0; // f(i - 1), update as f(i) for each iteration
+    int* pos = new int[26]; // map(char -> index where it appears in string)
     for (int i = 0; i < 26; i++) {
         pos[i] = -1;
     }
 
     for (int i = 0; i < s.length(); ++i) {
-
         // the most previous index where s[i] appears in string
-        int prev_index = pos[s[i] - 'a']; 
+        int prev_index = pos[s[i] - 'a'];
 
         if (prev_index < 0 || (i - prev_index) > curr_length) {
             curr_length++;
-        }
-        else if (i - prev_index <= curr_length) {
+        } else if (i - prev_index <= curr_length) {
             curr_length = i - prev_index;
         }
 
@@ -89,7 +85,7 @@ int main(int argc, char** argv) {
 }
 
 // DP:
-// f(i) stands for the max length of substring without duplicates which ends with index i 
+// f(i) stands for the max length of substring without duplicates which ends with index i
 // 1. If s[i] has no duplicates in previous substr[0, i) : f(i) = f(i-1) + 1
 // 2. If s[i] has duplicates in previous substr[0, i) :
 //      Given d is the distance between current character and nearest duplicate,

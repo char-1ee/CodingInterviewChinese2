@@ -29,7 +29,7 @@ void SerializeHelper(const TreeNode* root, ostringstream& out_stream) {
 
 TreeNode* Deserialize(const string data) {
     istringstream in_stream(data);
-    return DeserializeHelper(in_stream); 
+    return DeserializeHelper(in_stream);
 }
 
 TreeNode* DeserializeHelper(istringstream& in_stream) {

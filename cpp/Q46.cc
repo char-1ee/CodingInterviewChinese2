@@ -16,7 +16,7 @@ int CountTranslation(int num) {
 int CountTranslation(const string& num) {
     int length = num.length();
 
-    int *dp = new int[length];
+    int* dp = new int[length];
     int count = 0; // count of f(i)
 
     for (int i = length - 1; i >= 0; i--) {
@@ -56,7 +56,7 @@ void Test(string test_name, int num, int expected) {
     }
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
     Test("Test 1", 0, 1);
     Test("Test 2", 1, 1);
     Test("Test 3", 10, 2);

@@ -4,9 +4,9 @@
 
 #include <cstdio>
 #include <iostream>
-#include <vector>
-#include <string>
 #include <limits>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -14,7 +14,8 @@ const int TABLE_SIZE = 256;
 
 class CharacterStream {
 public:
-    CharacterStream() : index(0) {
+    CharacterStream()
+        : index(0) {
         for (int i = 0; i < TABLE_SIZE; i++) {
             table[i] = -1;
         }
@@ -44,8 +45,8 @@ public:
     }
 
 private:
-    // table[i] = i:  character's occurence index 
-    // table[i] = -1: character not found 
+    // table[i] = i:  character's occurence index
+    // table[i] = -1: character not found
     // table[i] = -2: character found multiple times
     // table[i] >= 0: character found only once
     int table[TABLE_SIZE];

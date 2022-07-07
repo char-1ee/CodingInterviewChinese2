@@ -45,52 +45,43 @@ void Test(string test_name, int arr[], int length, string expected) {
 
     // the result can be overflow, so using string
     string result = FindMinPermutation(arr, length);
-    if (result == expected) 
-    {
+    if (result == expected) {
         printf("Passed.\n");
-    }
-    else
-    {
+    } else {
         printf("FAILED.\n");
     }
 }
 
-void Test1() 
-{
+void Test1() {
     int numbers[] = {3, 5, 1, 4, 2};
-    Test("Test1", numbers, sizeof(numbers)/sizeof(int), "12345");
+    Test("Test1", numbers, sizeof(numbers) / sizeof(int), "12345");
 }
 
-void Test2()
-{
+void Test2() {
     int numbers[] = {3, 32, 321};
-    Test("Test2", numbers, sizeof(numbers)/sizeof(int), "321323");
+    Test("Test2", numbers, sizeof(numbers) / sizeof(int), "321323");
 }
 
-void Test3()
-{
+void Test3() {
     int numbers[] = {3, 323, 32123};
-    Test("Test3", numbers, sizeof(numbers)/sizeof(int), "321233233");
+    Test("Test3", numbers, sizeof(numbers) / sizeof(int), "321233233");
 }
 
-void Test4()
-{
+void Test4() {
     int numbers[] = {1, 11, 111};
-    Test("Test4", numbers, sizeof(numbers)/sizeof(int), "111111");
+    Test("Test4", numbers, sizeof(numbers) / sizeof(int), "111111");
 }
 
-void Test5()
-{
+void Test5() {
     int numbers[] = {321};
-    Test("Test5", numbers, sizeof(numbers)/sizeof(int), "321");
+    Test("Test5", numbers, sizeof(numbers) / sizeof(int), "321");
 }
 
-void Test6()
-{
+void Test6() {
     Test("Test6", nullptr, 0, "Invalid");
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
     Test1();
     Test2();
     Test3();

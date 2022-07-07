@@ -8,13 +8,11 @@
 using namespace std;
 
 char FindFirstNotRepeatChar(const string s) {
-    if (s.empty())
-        return '\0';
-    if (s.length() == 1)
-        return s[0];
+    if (s.empty()) return '\0';
+    if (s.length() == 1) return s[0];
 
     const int TABLE_SIZE = 256;
-    unsigned int table[TABLE_SIZE] = { 0 }; // initailze all elements 0
+    unsigned int table[TABLE_SIZE] = {0}; // initailze all elements 0
     for (int i = 0; i < s.length(); ++i) {
         table[s[i]]++;
     }

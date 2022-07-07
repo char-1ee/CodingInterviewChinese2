@@ -1,4 +1,4 @@
-// Maximum subarray: Given an int array, containing positives and negatives. 
+// Maximum subarray: Given an int array, containing positives and negatives.
 // Find the max sum among all sums of subarrays.
 // Subarray includes one or more sequential integers in array.
 // Time constraints: O(n)
@@ -10,7 +10,7 @@ using namespace std;
 bool is_invalid_input = false;
 
 // DP explanation of Kadane's algorithm
-int FindMaximumSubarray_1(int arr[], int length) { 
+int FindMaximumSubarray_1(int arr[], int length) {
     if (arr == nullptr || length <= 0) {
         is_invalid_input = true;
         return 0;
@@ -44,8 +44,8 @@ int FindMaximumSubarray_2(int arr[], int length) {
     int res_max_subarray_sum = INT_MIN;
 
     for (int i = 0; i < length; i++) {
-        curr_max_subarray_sum += arr[i]; 
-        
+        curr_max_subarray_sum += arr[i];
+
         if (curr_max_subarray_sum > res_max_subarray_sum) {
             res_max_subarray_sum = curr_max_subarray_sum;
         } // updating res_max if curr_sum larger than curr res_max

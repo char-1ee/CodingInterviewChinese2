@@ -15,7 +15,7 @@ int BeginNumber(int digits);
 int DigitAtIndex(int n) {
     if (n < 0) {
         return -1;
-    } 
+    }
     if (n < 10) {
         return n;
     }
@@ -30,7 +30,7 @@ int DigitAtIndex(int n) {
         count = CountOfIntegers(digit);
     }
 
-    // Find the beginning number for m-digit numbers. 10, 100, 10000 ... 
+    // Find the beginning number for m-digit numbers. 10, 100, 10000 ...
     int begin = BeginNumber(digit);
 
     // Find the number that n-th digit is in
@@ -50,7 +50,7 @@ int CountOfIntegers(int m) {
     if (m == 1) {
         cnt = 10;
     } else {
-        cnt = 9 * m * (int) pow(10, m - 1);
+        cnt = 9 * m * (int)pow(10, m - 1);
     }
     return cnt;
 }
@@ -60,15 +60,15 @@ int BeginNumber(int m) {
     if (m == 1) {
         return 0;
     }
-    return (int) pow(10, m - 1);
+    return (int)pow(10, m - 1);
 }
 
 // =========== testing ===========
 void Test(string test_name, int n, int expected) {
     if (DigitAtIndex(n) != expected) {
-        cout << test_name  << ": FAILED" << endl;
+        cout << test_name << ": FAILED" << endl;
     } else {
-        cout << test_name  << ": Passed" << endl;
+        cout << test_name << ": Passed" << endl;
     }
 }
 
@@ -80,8 +80,8 @@ int main() {
     Test("Test 4", 10, 1);
     Test("Test 5", 189, 9);
     Test("Test 6", 1000, 3);
-    Test("Test 7", 1001, 7); 
-	Test("Test 8", 1002, 0); 
+    Test("Test 7", 1001, 7);
+    Test("Test 8", 1002, 0);
     Test("Test 9", -1, -1);
 
     return 0;
@@ -91,4 +91,4 @@ int main() {
 //  1. Find the digit of the number that n refers to; m = Digit(n);
 //  2. Find the number that n refers to; num = Numbe(r(m, n);
 //  3. Find the position of n in num; res = Position(num, n);
-// 
+//

@@ -1,10 +1,10 @@
 #include <cstdio>
+#include <functional>
 #include <iostream>
-#include <string>
-#include <vector>
 #include <queue>
 #include <set>
-#include <functional>
+#include <string>
+#include <vector>
 #include "utils/Array.h"
 
 using namespace std;
@@ -24,9 +24,7 @@ void LeastKNumber_1(int arr[], int length, int k) {
         if (index > k - 1) {
             end = index - 1;
             index = Partition(arr, length, start, end);
-        }
-        else
-        {
+        } else {
             start = index + 1;
             index = Partition(arr, length, start, end);
         }
@@ -70,14 +68,13 @@ void LeastKNumber_3(const vector<int>& arr, intSet& leastKNumbers, int k) {
     }
 
     vector<int>::const_iterator iter = arr.begin();
-    for(; iter != arr.end(); ++ iter) {
-        if((leastKNumbers.size()) < k) {
+    for (; iter != arr.end(); ++iter) {
+        if ((leastKNumbers.size()) < k) {
             leastKNumbers.insert(*iter);
-        }
-        else {
+        } else {
             setIterator iterGreatest = leastKNumbers.begin();
 
-            if(*iter < *(leastKNumbers.begin())) {
+            if (*iter < *(leastKNumbers.begin())) {
                 leastKNumbers.erase(iterGreatest);
                 leastKNumbers.insert(*iter);
             }
@@ -102,8 +99,7 @@ void Test(const string test_name, int arr[], int length, int k) {
     printf("Solution 2: ");
     if (arr == nullptr) {
         LeastKNumber_2(nullptr, length, k);
-    }
-    else {
+    } else {
         int arr_copy[length];
         copy(arr, arr + length, arr_copy);
         LeastKNumber_2(arr_copy, length, k);
@@ -116,7 +112,7 @@ void Test(const string test_name, int arr[], int length, int k) {
             list.push_back(arr[i]);
         }
     }
-    
+
     intSet leastKNumbers;
     LeastKNumber_3(list, leastKNumbers, k);
 }
@@ -124,7 +120,7 @@ void Test(const string test_name, int arr[], int length, int k) {
 int main(int argc, char** argv) {
     int arr[] = {4, 5, 1, 6, 2, 7, 3, 8};
     int arr2[] = {2, 5, 1, 2, 2, 7, 2, 8};
-    
+
     Test("Test 1", arr, 8, 4); // k < length
     Test("Test 2", arr, 8, 8); // k = length
     Test("Test 3", arr, 8, 10); // k > length

@@ -1,22 +1,21 @@
 #include <algorithm>
-#include <vector>
 #include <cstdio>
+#include <functional>
 #include <iostream>
 #include <stdexcept>
-#include <functional>
+#include <vector>
 
 using namespace std;
 
 // Insert O(logn), GetMedian O(1)
-template <class T> class MedianFinder {
+template <class T>
+class MedianFinder {
 public:
-
     // Insert into min heap when even size, max heap when odd size.
     void Insert(T t) {
         if (((max.size() + min.size()) & 1) == 0) // even size
-        { 
-            if (max.size() > 0 && t < max[0]) 
-            {
+        {
+            if (max.size() > 0 && t < max[0]) {
                 max.push_back(t);
                 push_heap(max.begin(), max.end(), less<T>());
 
@@ -28,11 +27,9 @@ public:
 
             min.push_back(t);
             push_heap(min.begin(), min.end(), greater<T>());
-        }
-        else // odd size
-        { 
-            if (min.size() > 0 && min[0] < t) 
-            {
+        } else // odd size
+        {
+            if (min.size() > 0 && min[0] < t) {
                 min.push_back(t);
                 push_heap(min.begin(), min.end(), greater<T>());
 
@@ -70,7 +67,7 @@ private:
 
 // unit testing
 void Test(string test_name, MedianFinder<double>& data, double expected) {
-   cout << test_name << ": ";
+    cout << test_name << ": ";
 
     if (abs(data.GetMedian() - expected) < 0.000001) {
         printf("Passed\n");
@@ -79,7 +76,7 @@ void Test(string test_name, MedianFinder<double>& data, double expected) {
     }
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
     MedianFinder<double> data;
 
     printf("Test1 begins: \n");
