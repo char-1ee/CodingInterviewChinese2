@@ -107,15 +107,6 @@ void Test(string test_name, ListNode* head1, ListNode* head2, ListNode* expected
     }
 }
 
-void DestroyList(ListNode* head) {
-    ListNode* curr = head;
-    while (curr != nullptr) {
-        head = head->next;
-        delete head;
-        curr = head;
-    }
-}
-
 // Common node is at middle
 // 1 - 2 - 3 \
 //            6 - 7
@@ -152,8 +143,8 @@ void Test2() {
 
     Test("Test 2", n1, n2, nullptr);
 
-    // DestroyList(n1);
-    // DestroyList(n2);
+    DestroyList(n1);
+    DestroyList(n2);
 }
 
 // Common node is the first node
@@ -164,7 +155,7 @@ void Test3() {
 
     Test("Test 3", node, node, node);
 
-    // DestroyList(node);
+    DestroyList(node);
 }
 
 // Common node is the last node

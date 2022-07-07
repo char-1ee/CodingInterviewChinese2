@@ -49,12 +49,11 @@ ListNode* CreateList(int values[], int length) {
     return head->next; 
 }
 
-// Destroy the list
-// void DestroyList(ListNode* head) {
-//     ListNode* curr = head;
-//     while (curr != nullptr) {
-//         head = head->next;
-//         delete head;
-//         curr = head;
-//     }
-// }
+// Destroy the list (avoid `free(): double free detected in tcache 2`)
+void DestroyList(ListNode* head) {
+    while (head != nullptr) {
+        ListNode* tmp = head;
+        head = head->next;
+        delete tmp;
+    }
+}
