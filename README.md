@@ -2,7 +2,7 @@ Coding Interview Solutions
 -----
 《剑指Offer：名企面试官精讲典型编程面试题》第二版  
 
-This book introduces 68 typical coding interview questions from head software companies. 
+This book introduces 80 typical coding interview questions from head software companies. 
 
 ### About my codes
 - **Languages**. Java implementations (Q2 - Q36) + C++ implementations (Q37 - Q68)
