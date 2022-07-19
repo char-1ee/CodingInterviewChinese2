@@ -70,5 +70,3 @@ replay_pid*
 # vscode
 .vscode 
 .vs
-
-.clang-format

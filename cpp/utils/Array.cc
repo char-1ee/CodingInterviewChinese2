@@ -1,7 +1,7 @@
-#include <cstdlib>
-#include <cstdio>
-#include <exception>
 #include "Array.h"
+#include <cstdio>
+#include <cstdlib>
+#include <exception>
 
 // Return a random number in range of [min, max]
 int Random(int min, int max) {
@@ -29,15 +29,11 @@ int Partition(int arr[], int length, int start, int end) {
 
     while (true) {
         while (arr[++i] < pivot) { // find the first num >= pivot
-            if (i == end) {
-                break;
-            }
+            if (i == end) break;
         }
 
         while (arr[--j] > pivot) { // find the first num <= pivot
-            if (j == start) {
-                break;
-            }
+            if (j == start) break;
         }
 
         if (i >= j) { // check two ptr not cross

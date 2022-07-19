@@ -8,11 +8,9 @@
 
   - `String` is **immutable**, which means altering the String value will create another String object/instance, and the new temporary instances can be only obtained by method returns or assignments
   - `StringBuilder` is **mutable**, which changes on value can be maintained.
-
 - StringBuilder vs StringBuffer
 
   - StringBuffer has thread-safety but people realized that it costy to ensure thread safety, thus StringBuilder is promoted.
-
 - Conversions
 
   ```java
@@ -34,10 +32,10 @@
   ```java
   StringBuilder sb = new StringBuilder(str);
   sb.append("");
-  sb.charAt(int index); 				// return char
-  sb.indexOf(String str); 			// return int
-  sb.substring(int start, int end); 	// return String
-  sb.reverse(); 						// return StringBuilder
+  sb.charAt(int index);     // return char
+  sb.indexOf(String str);    // return int
+  sb.substring(int start, int end);  // return String
+  sb.reverse();       // return StringBuilder
   ```
 
 - String and Integer conversion
@@ -100,7 +98,7 @@
 
   ```java
   static final int hash(Object key) {
-  	int h;
+   int h;
       return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
   }
 
@@ -116,11 +114,11 @@
 
 ```java
 Stack<T> stack = new Stack<>();
-stack.empty();			// is empty
-stack.peek();			// retrieve
-stack.pop();			// pop
-stack.push(T item);	 	// push
-stack.search(Object o);	// search from top, starting from 1-index
+stack.empty();   // is empty
+stack.peek();   // retrieve
+stack.pop();   // pop
+stack.push(T item);   // push
+stack.search(Object o); // search from top, starting from 1-index
 ```
 
 ```java
@@ -141,8 +139,8 @@ Deque<T> deque = new ArrayDeque<>();
 Deque<T> deque = new LinkedList<>();
 deque.isEmpty();
 // enqueue
-deque.offerLast(T t); 	// tail
-deque.offerFirst(T t); 	// head
+deque.offerLast(T t);  // tail
+deque.offerFirst(T t);  // head
 // dequeue
 deque.pollLast();
 deque.pollFirst();
@@ -158,9 +156,9 @@ deque.removeLastOccurrence(Object o);
 
   3 4 - 5 + -> 3 - 4 + 5
 
-  3 4 5 _ - -> 3 - 4 _ 5
+  3 4 5 _- -> 3 - 4_ 5
 
-  3 4 - 5 _ -> (3 - 4) _ 5
+  3 4 - 5 _-> (3 - 4)_ 5
 
   if operand push,
 
@@ -208,32 +206,28 @@ vector<int> ranks;
     类锁：修饰 static method / variables, 因为 static 的 field/method 对于一个 class 来说只有一份
 
     对象锁：修饰 non-static method / block
-
   - `synchronized(X.class)` is used to make sure that there is exactly one Thread in the block. `synchronized(this)` ensures that there is exactly one thread per instance.
   - 修饰整个 method, 修饰 block (部分 method) -> synchronized (this) {}
-
 - **Volatile**
 
   _the volatile modifier guarantees that any thread that reads a field will see the most recently written value_
 
   When a share variable is with volatile, any changes to it will be updated into main memory. A normal variable has not a fixed timestamp to be written into main memory.
-
 - **Java 内存模型: 分区, JMM, GC**
 
-  - https://www.cnblogs.com/dolphin0520/p/3920373.html
+  - [https://www.cnblogs.com/dolphin0520/p/3920373.html](https://www.cnblogs.com/dolphin0520/p/3920373.html)
   - Java Memory Model (JMM)
   - 并发编程三概念：
 
     1. 原子性 (atomic)
     2. 可见性 (volatile)
     3. 有序性 (instruction reorder)
-
 - 类的加载
 - Future and promise
 
 ## Golang
 
-- GMP model: https://learnku.com/articles/41728
+- GMP model: [https://learnku.com/articles/41728](https://learnku.com/articles/41728)
 - GC
 - Goroutine
 
@@ -246,13 +240,11 @@ vector<int> ranks;
 - Replace data in cache ()
 
   ![img](https://pic4.zhimg.com/80/v2-b3a48ef239772765bff1eb2c396ad79f_720w.jpg)
-
 - Write in Cache and DRAM
 
   - Wrote in cache and DRAM at the same time
   - Only when data replaced in cache, wrote back in DRAM
   - Queue, data wrote in the queue, and then wrote in DRAM from queue
-
 - Cache coherence
 
 ### **Process**
@@ -262,7 +254,6 @@ Process is an instance of a program or a running program. ([link](https://www.cn
 - Context switch, concurrent but not parallel.
 
   CPU context: registers and PC (Program Counter).
-
 - New -> ready -> running -> waiting/blocked -> running -> terminate
 - Suspend state (6th state): processes in disk do not occupy physical memory
 
@@ -271,14 +262,12 @@ Process is an instance of a program or a running program. ([link](https://www.cn
   For example, ctrl+Z in Linux and sleep().
 
   ![img](https://pic3.zhimg.com/80/9faf605ebd46e68d125f5f5ed76495cc_720w.png)
-
 - PCB (Process Control Block). The identifier of existence of a process.
 
   - A PCB contains: pid, uid, current process state, priority, resource allocation (about memory information, I/O devices), values in CPU registers (for resume executing when re-start).
   - Ready queue, block queue. Organized in linked list.
 
     ![就绪队列和阻塞队列](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS81NjljMzc1MS04NjQzLTQ2ZTctODUwNS0wYTJjMTFkMjkxOTgucG5n?x-oss-process=image/format,png)
-
 - Controls of process.
 
   - Create.
@@ -289,7 +278,6 @@ Process is an instance of a program or a running program. ([link](https://www.cn
     - 为进程分配资源，此处如果资源不足，进程就会进入等待状态，以等待资源；
     - 初始化 PCB；
     - 如果进程的调度队列能够接纳新进程，那就将进程插入到就绪队列，等待被调度运行；
-
   - Terminate.
 
     正常结束、异常结束以及外界干预（信号 `kill` 掉）
@@ -299,7 +287,6 @@ Process is an instance of a program or a running program. ([link](https://www.cn
     - 如果其还有子进程，则应将其所有子进程终止；
     - 将该进程所拥有的全部资源都归还给父进程或操作系统；
     - 将其从 PCB 所在队列中删除；
-
   - Wake up.
 
     如果某个进程调用了阻塞语句 (自我阻塞)，则必有一个与之对应的唤醒语句。
@@ -307,7 +294,6 @@ Process is an instance of a program or a running program. ([link](https://www.cn
     - 在该事件的阻塞队列中找到相应进程的 PCB；
     - 将其从阻塞队列中移出，并置其状态为就绪状态；
     - 把该 PCB 插入到就绪队列中，等待调度程序调度；
-
   - Block.
 
     当进程需要等待某一事件完成时，它可以调用阻塞语句把自己阻塞等待。而一旦被阻塞等待，它只能由另一个进程唤醒。
@@ -328,7 +314,6 @@ Process is a program in execution while thread is a segment of a process, which 
   - Threads can run parallelly.
   - Threads can share resources like addresses and files (but not registers and stack).
   - But, when a thread crashes, other threads in the same process all crash.
-
 - Process versus Thread
 
   Process is the resources allocation unit while thread is the CPU scheduling unit.
@@ -339,25 +324,21 @@ Process is a program in execution while thread is a segment of a process, which 
   - 线程能减少并发执行的时间和空间开销；
 
     - Thread context switch. Less cost than process context switch coz no switch between user space and kernel space.
-
   - Implementations.
 
     - User Thread (one-many, many-one, many-many): controlled by user space
     - Kernel Thread: controlled by kernel
     - Lightweight Process
-
 - User Thread (many-to-one)
 
   用户线程的整个线程管理和调度，操作系统是不直接参与的，而是由用户级线程库函数来完成线程的管理，包括线程的创建、终止、同步和调度等。
 
   <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS83ZTI3YzEzOC1kYzFmLTRmOWYtODhlMi1lZGVkOGMzMWIyNGIucG5n?x-oss-process=image/format.png" alt="用户级线程模型" style="zoom:40%;" />
-
 - Kernel Thread (one-to-one)
 
   内核线程是由操作系统管理的，线程对应的 TCB 自然是放在操作系统里的，这样线程的创建、终止和管理都是由操作系统负责。
 
   <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS9lZmNlZGM5Ny1lYjI4LTRjNTYtOWYzOS1lNGE3YzkwZGZkNDQucG5n?x-oss-process=image/format.png" alt="内核线程模型" style="zoom:50%;" />
-
 - Lightweight Process, LWP
 
   轻量级进程是内核支持的用户线程，一个进程可有一个或多个 LWP，每个 LWP 是跟内核线程一对一映射的，也就是 LWP 都是由一个内核线程支持。
@@ -395,7 +376,6 @@ Process is a program in execution while thread is a segment of a process, which 
   - ready queue -> running
   - running -> blocked queue
   - running -> terminated
-
 - Preemptive and Non-preemptive: interruptible and ir-interruptible
 - Principles
 
@@ -404,7 +384,6 @@ Process is a program in execution while thread is a segment of a process, which 
   - turning around time = executing time + blocking time
   - waiting time = time in ready queue
   - response time = time from click to first response
-
 - Algorithms
 
   - First Come First Serve, FCFS: for CPU busy system but not for I/O busy system
@@ -415,12 +394,10 @@ Process is a program in execution while thread is a segment of a process, which 
 
     - 如果两个进程的「等待时间」相同时，「要求的服务时间」越短，「响应比」就越高，这样短作业的进程容易被选中运行；
     - 如果两个进程「要求的服务时间」相同时，「等待时间」越长，「响应比」就越高，这就兼顾到了长作业进程，因为进程的响应比可以随时间等待的增加而提高，当其等待时间足够长时，其响应比便可以升到很高，从而获得运行的机会
-
   - Round Robin, RR: quantum
 
     - 如果时间片设得太短会导致过多的进程上下文切换，降低了 CPU 效率；
     - 如果设得太长又可能引起对短作业进程的响应时间变长。通常时间片设为 `20ms~50ms` 通常是一个比较合理的折中值。
-
   - Highest Priority First, HPF
 
     进程的优先级可以分为，静态优先级或动态优先级：
@@ -434,7 +411,6 @@ Process is a program in execution while thread is a segment of a process, which 
     - 抢占式：当就绪队列中出现优先级高的进程，当前进程挂起，调度优先级高的进程运行。
 
     但是依然有缺点，可能会导致低优先级的进程永远不会运行。
-
   - Multilevel Feedback Queue (HPF + RR), MFQ
 
     ![多级反馈队列](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS8zYjIxNTA5YS03ZWJhLTQ3YTEtYmMxYi1kOTAyYjZjNjRlZmQucG5n?x-oss-process=image/format.png)
@@ -452,10 +428,10 @@ Process is a program in execution while thread is a segment of a process, which 
 
   ```c
   do {
-  	// Entry section
-  		/* Critical section */
-  	// Exit section
-  		/* Remainder section */
+   // Entry section
+    /* Critical section */
+   // Exit section
+    /* Remainder section */
   } while (TRUE)
   ```
 
@@ -579,7 +555,6 @@ Process is a program in execution while thread is a segment of a process, which 
   - Semaphore usages
     - mutual exclusively enter critical section
     - event synchronization
-
 - Consumer-producer problem
 
   <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS80NWYzNGZhMC1jNTE0LTQxZWEtYTljNC1iNzkxOGZkMzk3ZDMucG5n?x-oss-process=image/format.png" alt="生产者-消费者模型" style="zoom:67%;" />
@@ -600,7 +575,7 @@ Process is a program in execution while thread is a segment of a process, which 
           P(mutex);
           // add buffer
           V(mutex);
-          V(fullBuffers);	// fullBuffers + 1
+          V(fullBuffers); // fullBuffers + 1
       }
   }
 
@@ -728,9 +703,7 @@ Inter Process Communication
     <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS83ZmVmZjRjMC1hMWFjLTQ0MzAtYmVhMi1mZTQxYjA0MjI4NWEucG5n?x-oss-process=image/format,png" alt="img" style="zoom:50%;" />
 
     ![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS9jNmExYTllNy1kY2JjLTRmMjUtOTQ3ZC1mNjdhMjg1ZjA2YjAucG5n?x-oss-process=image/format,png)
-
   - Pipe is low efficient, not suitable for frequent communication between processes.
-
 - Message queue
 
   - Linked list in kernel, user-defined data block.
@@ -739,7 +712,6 @@ Inter Process Communication
     - Not timely.
     - Not suitable for large scale data transmission. `MSGMAX` and `MSGMNB`.
     - Cost of copying data between kernel and user space.
-
 - Shared memory
 - Message pass (mailbox)
 - Semaphore
@@ -753,13 +725,11 @@ Inter Process Communication
 
     - **P 操作**会把信号量减去 -1，相减后如果信号量 < 0，则表明资源已被占用，进程需阻塞等待；相减后如果信号量 >= 0，则表明还有资源可使用，进程可正常继续执行。
     - **V 操作**会把信号量加上 1，相加后如果信号量 <= 0，则表明当前有阻塞中的进程，于是会将该进程唤醒运行；相加后如果信号量 > 0，则表明当前没有阻塞中的进程；
-
 - Signal (Async)
 
   Notify processes with Signal in exception mode.
 
   E.g. Ctrl + C -> `SIGINT` end the process, Ctrl + Z -> `SIGTSTP` pause the process but not end.
-
 - Socket (Over host and In host)
 
   ```c
@@ -769,7 +739,6 @@ Inter Process Communication
   ![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS9iMDU3MmRkOS03YTI1LTQ0OTUtOWIyZS0wZTg1NjM0MTg1ZTMucG5n?x-oss-process=image/format.png)
 
   <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWdrci5jbi1iai51ZmlsZW9zLmNvbS82NTRjY2Y3NC02MWJkLTQ3OTItYWNlZi1jYWI3ZWUwZGM5YzkucG5n?x-oss-process=image/format.png" alt="img" style="zoom:75%;" />
-
 - [Summary](https://www.cnblogs.com/xiaolincoding/p/13402297.html)
 
 ### Deadlock
@@ -783,25 +752,21 @@ Two threads/processes(use processes below) wait for each to release the lock.
     ![img](https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost4@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%AD%BB%E9%94%81/%E4%BA%92%E6%96%A5%E6%9D%A1%E4%BB%B6.png)
 
     Process A and process B cannot own same resource at the same time.
-
   - **Hold and Wait**
 
     ![img](https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost4@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%AD%BB%E9%94%81/%E6%8C%81%E6%9C%89%E5%B9%B6%E7%AD%89%E5%BE%85%E6%9D%A1%E4%BB%B6.png)
 
     Process A is waiting for resource hold by C, meanwhile A will not release the resources that A have.
-
   - **No preemption**
 
     ![img](https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost4@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%AD%BB%E9%94%81/%E4%B8%8D%E5%8F%AF%E5%89%A5%E5%A4%BA%E6%9D%A1%E4%BB%B6.png)
 
     B cannot preemptively obtain the resources until A releases.
-
   - **Circular Wait**
 
     ![img](https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost4@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%AD%BB%E9%94%81/%E7%8E%AF%E8%B7%AF%E7%AD%89%E5%BE%85%E6%9D%A1%E4%BB%B6.png)
 
     The order of two processes to obtain the resources goes into loop.
-
 - Tools to detect deadlocks: `pstack`+ `gdb`, `jstack`
 - Solve deadlocks [link](https://www.geeksforgeeks.org/introduction-of-deadlock-in-operating-system/?ref=lbp)
 
@@ -813,11 +778,9 @@ Two threads/processes(use processes below) wait for each to release the lock.
     2. Static allocation. A process will not execute until all resources needed are satisfied before execution. -> lower down the resource utilization.
     3. If a process needs new resources, allocate if have, otherwise release all resources it currently has and re-allocate later. -> introduce a scheduler mechanism
     4. Allocation in order. 给系统的所有资源编号，规定进程请求所需资源的顺序必须按照资源的编号依次进行.
-
   - Avoidance
 
     - [Safe state](https://zhuanlan.zhihu.com/p/61221667)
-
   - Detection
 
     - single resource deadlock detection
@@ -825,18 +788,16 @@ Two threads/processes(use processes below) wait for each to release the lock.
       <img src="https://pic2.zhimg.com/v2-15d05471cb6d97558eac7c026f2fc7d5_b.jpg" alt="img" style="zoom:75%;" />
 
       algorithm: find cycle in directed graph -> cycle means deadlock
-
     - multiple resources deadlock detection
 
       ![img](https://pic1.zhimg.com/v2-b7e8ba213e6589be48c923a4b0bb43b4_b.jpg)
-
   - Recovery
 
 ## Design pattern
 
 ### Factory pattern
 
-Reference: https://www.cnblogs.com/yssjun/p/11102162.html
+Reference: [https://www.cnblogs.com/yssjun/p/11102162.html](https://www.cnblogs.com/yssjun/p/11102162.html)
 
 **Simple factory pattern.** Client call factory class to create new instance at runtime.
 
@@ -862,7 +823,6 @@ Client create an instance of strategy class which apply flexibly according to ar
 
   - Make the default constructor private, to prevent other objects from using the `new` operator with the Singleton class.
   - Create a static creation method that acts as a constructor. Under the hood, this method calls the private constructor to create an object and saves it in a static field. All following calls to this method return the cached object.
-
 - Starving approach (Thread safe but waste memory)
 
   ```java
@@ -971,7 +931,7 @@ Client create an instance of strategy class which apply flexibly according to ar
   }
   ```
 
-  Double-checked locking from wiki (https://refactoring.guru/java-dcl-issue):
+  Double-checked locking from wiki ([https://refactoring.guru/java-dcl-issue](https://refactoring.guru/java-dcl-issue)):
 
   Reduce overhead of acquiring a lock by testing the lock criterion before acquiring it.
 
@@ -989,8 +949,8 @@ Client create an instance of strategy class which apply flexibly according to ar
 - TCP/IP model (Application, Transport, Network, Network Interface)
 
   ```markdown
-      	+-------------+-------------------------+
-          | Application |  HTTP, FTP, etc       	|
+       +-------------+-------------------------+
+          | Application |  HTTP, FTP, etc        |
           +-------------+-------------------------+
           | Transport   |  TCP, UDP               |
           +-------------+-------------------------+
@@ -1007,19 +967,15 @@ Client create an instance of strategy class which apply flexibly according to ar
   - Application: supporting network applications --> **Message**
 
     - HTTP, IMAP, SMTP, DNS
-
   - Transport: process-process data transfer --> **Segment**
 
     - TCP, UDP
-
   - Network: routing of datagrams from source to destination --> **Datagram**
 
     - IP, routing protocols
-
   - Link: data transfer between neighbouring network elements --> **Frame**
 
     - Ethernet, PPP, Wi-Fi
-
   - Physical: bits on the wire
 
 ### [3-way &amp; 4-way handshake](https://www.cnblogs.com/three-fighter/p/14802786.html)
@@ -1036,7 +992,7 @@ Client create an instance of strategy class which apply flexibly according to ar
 
 ### TCP
 
-![TCP vs. UDP](<https://www.lifewire.com/thmb/OhU9Rn5-Myfpbzjyy98U8UMAMCs=/1235x695/smart/filters:no_upscale()/tcp-headers-f2c0881ea4c94e919794b7c0677ab90a.jpg>)
+![TCP vs. UDP](https://www.lifewire.com/thmb/OhU9Rn5-Myfpbzjyy98U8UMAMCs=/1235x695/smart/filters:no_upscale()/tcp-headers-f2c0881ea4c94e919794b7c0677ab90a.jpg)
 
 - Sequence number: random initialize, SYN, increment, solve packet disorder
 - Acknowledgement number: SYN expected next time, client receive it to ensure all data before the ACK is well received. Solve packet loss.
@@ -1062,11 +1018,9 @@ Client create an instance of strategy class which apply flexibly according to ar
   - _5xx server error_ – the server failed to fulfil an apparently valid request
 
     200 OK, 302 Found, 400 Bad Request, 404 Not Found, 500 Internal Server Error, 503 Service Unavailable
-
 - HTTP header fields
 
   Host, Content-Length, Connection, Content-Type, Content-Encoding
-
 - HTTP methods: GET, POST, PUT, DELETE
 - HTTP/1.1 persistent connection, pipeline, head-of-blocking
 - [HTTP and HTTPS](https://www.geeksforgeeks.org/difference-between-http-and-https/?ref=lbp)
@@ -1078,7 +1032,6 @@ Client create an instance of strategy class which apply flexibly according to ar
   - HTTPS needs SSL Certificates from CA
 
   <img src="https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/19-HTTPS%E4%B8%8EHTTP.png" alt="HTTP 与 HTTPS 网络层" style="zoom:67%;" />
-
 - HTTP/1.1
 
   - TCP persistent connection and support pipeline transmission
@@ -1090,12 +1043,10 @@ Client create an instance of strategy class which apply flexibly according to ar
   - Binary Framing (enhance transmission efficiency)
 
     <img src="https://img-blog.csdnimg.cn/img_convert/98f47d18c604c78e4f52cce45dd7fb92.png" alt="HTTP/1 与 HTTP/2 " style="zoom:80%;" />
-
   - Stream
   - Multiplexing (reduce latency and enhance connection utilization)
 
     <img src="https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/26-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8.png" alt="多路复用" style="zoom:80%;" />
-
   - Server push (Server initiatively send information to client rather than passively response)
 
     ![img](https://img-blog.csdnimg.cn/img_convert/660296aecc940c9bfae59f17f450c75f.png)
@@ -1107,6 +1058,74 @@ Client create an instance of strategy class which apply flexibly according to ar
   - HTTP/3 把 HTTP 下层的 TCP 协议改成了 UDP
 
   <img src="https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/27-HTTP3.png" alt="HTTP/1 ~ HTTP/3" style="zoom:80%;" />
+
+### REST
+
+[Representational State Tranfer](https://www.zhihu.com/collection/467101293). If an architecture fits REST principle, we call it RESTful.
+
+- **HTTP methods:**
+
+  ```
+  GET（SELECT）：从服务器取出资源（一项或多项）。
+  POST（CREATE）：在服务器新建一个资源。
+  PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
+  PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。
+  DELETE（DELETE）：从服务器删除资源。
+  HEAD：获取资源的元数据。
+  OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。
+  ```
+
+  ```
+  GET /zoos：列出所有动物园
+  POST /zoos：新建一个动物园
+  GET /zoos/ID：获取某个指定动物园的信息
+  PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）
+  PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）
+  DELETE /zoos/ID：删除某个动物园
+  GET /zoos/ID/animals：列出某个指定动物园的所有动物
+  DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
+  ```
+
+- **Filtering**:
+
+  ```
+  ?limit=10：指定返回记录的数量
+  ?offset=10：指定返回记录的开始位置。
+  ?page=2&per_page=100：指定第几页，以及每页的记录数。
+  ?sortby=name&order=asc：指定返回结果按照哪个属性排序，以及排序顺序。
+  ?animal_type_id=1：指定筛选条件
+  ```
+
+- **Other**:
+
+  - use OAuth2.0 framework.
+  - response data formatting in JSON rather than XML.
+- **Protocol**: choose HTTPS as protocol between user and API.
+- **Domain**: as can as possible depoly under specific domain name.
+
+  ```
+  https://api.example.com
+  ```
+
+  If API is simple enought that no further extension, then put them under main domain).
+
+  ```
+  https://example.com/api
+  ```
+
+- **Versioning**: put the API version number into URL.
+
+  ```
+  https://api.example.com/v1/
+  ```
+
+- **Endpoint**: API stands for a resource, so no verbs in URL, should be nouns. Also, the enpoints should match the column name in databaser tables and using plural nouns.
+
+  ```
+  https://api.example.com/v1/zoos
+  https://api.example.com/v1/animals
+  https://api.example.com/v1/employees
+  ```
 
 ## Linux
 
@@ -1125,7 +1144,6 @@ Client create an instance of strategy class which apply flexibly according to ar
     Compiler -> Assembler -> Linker -> ELF file
 
     Load into main memory and read by CPU to execute
-
   - Monolithic Kernel
 
     Linux kernel is a complete executable program and has the highest permission.
@@ -1133,7 +1151,6 @@ Client create an instance of strategy class which apply flexibly according to ar
     All modules like memory management, file system, device driver, process scheduler run in monolithic kernel.
 
     ![分别为宏内核、微内核、混合内核的操作系统结构](https://cdn.jsdelivr.net/gh/xiaolincoder/ImageHost4@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%86%85%E6%A0%B8/OS-structure2.png)
-
 - 对于内核的架构一般有这三种类型：
 
   - 宏内核，包含多个模块，整个内核像一个完整的程序；monolithic kernel
@@ -1141,7 +1158,6 @@ Client create an instance of strategy class which apply flexibly according to ar
   - 混合内核，是宏内核和微内核的结合体，内核中抽象出了微内核的概念，也就是内核中会有一个小型的内核，其他模块就在这个基础上搭建，整个内核是个完整的程序；hybrid kernel
 
   Linux 的内核设计是采用了宏内核，Window 的内核设计则是采用了混合内核。
-
 - 这两个操作系统的可执行文件格式也不一样， Linux 可执行文件格式叫作 ELF，Windows 可执行文件格式叫作 PE (.exe, .dll, .sys)
 
 ### Shell
@@ -1154,7 +1170,6 @@ Client create an instance of strategy class which apply flexibly according to ar
     - `./path` is a file or directory named `path` in the current directory, with the directory spelled out. The dot directory `.` represents the current directory, and `path` is the name of the file or directory within this directory.
     - `~/path` is a shorthand for `$HOME/path` where `$HOME` is a variable which refers to your home directory. Typically your home directory will be somewhere like `/home/you` or `/Users/you` where `you` is your account name. (The command `echo "$HOME"` will display your home directory.) The expanded value is an absolute path (unless you have messed up the value of `$HOME` thoroughly), as indicated by the initial slash.
     - `/path` is an absolute path which refers to a file or directory named `path` which is in the _root_ directory `/`. Every file on Unix is ultimately somewhere in the directory tree which starts with the root directory
-
   - ls, ls -l, ls -a
   - cp, mv
   - symlinks
@@ -1165,10 +1180,8 @@ Client create an instance of strategy class which apply flexibly according to ar
     - display the file names that matches the pattern: `grep -l "unix" f1 f2 f3 f4`
     - display the matched pattern" `grep -o "unix" file`
     - show the line number while displaying the output: `grep -n "unix" file`
-
   - find, wc
   - cut, cat, sort
-
 - I/O redirection
 
   - file descriptor: stdin -> 0, stdout -> 1, stderr -> 2
@@ -1180,16 +1193,15 @@ Client create an instance of strategy class which apply flexibly according to ar
   - `<<` : multiple line stdin redirection
 
     ```bash
-    $ cat <<END > output.txt
+    cat <<END > output.txt
     ```
 
   - `{stdout} | {stdin}`: piping
-
 - Process & System resource management
 
   - `firefox &`: start a program
   - `pidof firefox`: check pids of a program
-  - `ps -p <pid> ` : detail info about a pid
+  - `ps -p <pid>` : detail info about a pid
   - `ps -ef | grep firefox` : find all firefox related processes
   - `kill -l`: list all signals
   - `kill -9 <pid>`: kill a process with SIGKILL(9) or SIGTERM(15)
@@ -1204,16 +1216,15 @@ Client create an instance of strategy class which apply flexibly according to ar
     - quit: `q`
     - load average
     - In `top` manpage, what are `free`, `used`, `buff`? ([link](https://unix.stackexchange.com/questions/390518/what-do-the-buff-cache-and-avail-mem-fields-in-top-mean))
-  - `free -h `: check available and used RAM
+  - `free -h`: check available and used RAM
     - `total`: RAM
     - `used`: not all used memory shown here
     - `free`: free memory, usually should be small since free means wasted
     - `available`: used to start new applications
     - `buff/cache` : buffer (data being written) + cache (data been read)
-
 - Networking basics
 
-  - `ssh username@<ip> `
+  - `ssh username@<ip>`
   - `ifconfig`: display assigned IP address
   - `ping <ip/domain name>`
 
@@ -1222,7 +1233,6 @@ Client create an instance of strategy class which apply flexibly according to ar
     The `ping` command will continue to send ICMP packages to the Destination IP address until it receives an interrupt. To stop the command, just hit the `Ctrl+C` key combination.
 
     E.g. A way to check DNS problems is to ping domain name and ping its IP address separately. If there is no problem, two ping processes will work well. Otherwise, DNS has problems.
-
   - `route -n` : kernel IP routing table
   - `netstat`: powerful tool for network states
   - `host <domain name>` : DNS lookup operations
@@ -1232,7 +1242,6 @@ Client create an instance of strategy class which apply flexibly according to ar
 - What is SRE?
 
   SRE, site reliability engineering. SRE is to help build and maintain high scalable and high performance software system. Normally, SREr is responsible for how code is deployed, configured and monitored, as well as the system latency, availability and so on. SRE in different company plays a different role, which is determined by company's business.
-
 - What is the difference between SRE and DevOps?
 
   DevOps: manage SDLC, automated operations and deployment, focus on efficiency of delivering the products.
@@ -1240,14 +1249,12 @@ Client create an instance of strategy class which apply flexibly according to ar
   SRE: focus on system scalability and availability.
 
   Both care about changes and accidents in SDLC.
-
 - What will you do as an SRE do when customer report a bug?
 
   - when detected, evaluate the accident. If not vital one, just hot-fix / put into queue; if P0 accident, assembly developers, operations, QAs
   - report to boss, locate the problem, redirect data to host-stand-by, or give permanent solutions like permanent site
   - while the teams work on accident, continuous follow-ups
   - after the accident, record, revise, give compensation mechanism to customers
-
 - How to detect bugs before customers report?
 
   - Automation tests: unit testing, stress testing, performance test
@@ -1262,7 +1269,6 @@ Client create an instance of strategy class which apply flexibly according to ar
   2. Security token. Initial login, post username and password to server, server generate a token, which includes user information used for unique authentication. Server sends back the token to client, client saves the token locally and every time includes the token (HTTP header) in request to server. We can set an expire period for the token.
 
      Token is stored in string, save memory space for server. And it is relatively more secure. Even if it is hijacked during transmission, others cannot crack the content, and it reduces server pressure and frequent database queries.
-
 - How to design a login feature?
 
 ## Logic problems
@@ -1285,7 +1291,6 @@ Client create an instance of strategy class which apply flexibly according to ar
      - http, restful, API
      - Docker
      - auto test with GitHub Actions
-
 3. Internship experiences?
 
    IoT (introducing the function of the app), Agile (meeting, scrum master + developer), Group, divide workload, what I do rather than what is it
