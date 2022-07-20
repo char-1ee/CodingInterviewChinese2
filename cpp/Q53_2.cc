@@ -24,7 +24,7 @@ int FindMissingNumber1(const int* arr, int length) {
 }
 
 // Binary search the mismatch of index and number, O(logn)
-int FindMissingNumber2(const int *arr, int length) {
+int FindMissingNumber2(const int* arr, int length) {
     if (arr == nullptr || length < 1) return -1;
     if (length == 1) return arr[0] == 1 ? 0 : 1;
 
@@ -34,19 +34,25 @@ int FindMissingNumber2(const int *arr, int length) {
         if (arr[mid] == mid) {
             left = mid + 1;
         } else {
-            if (arr[mid - 1] == mid - 1) {
-                return arr[mid];
+            if (mid == 0 || arr[mid - 1] == mid - 1) { // mid < 1 and mid > 1
+                return mid;
             } else {
                 right = mid;
             }
         }
     }
-    return right;
+
+    // When missing number is at the end of array
+    if (left == length) return length;
+
+    // Invalid input, including not well sorted array
+    // or some number out of range [0, n-1]
+    return -1;
 }
 
 
 void Test(string test_name, const int* arr, int length, int expected) {
-    cout << "-----" << test_name << " -----\n";
+    cout << "----- " << test_name << " -----\n";
 
     if (FindMissingNumber1(arr, length) == expected) {
         cout << "Solution 1: Passed." << endl;
