@@ -35,10 +35,10 @@ void Test(const char* test_name, const int* arr, int length, int expected) {
 }
 
 int main(int argc, char* argv[]) {
-    int arr1[] = { -3, -1, 1, 3, 5 };
+    int arr1[] = {-3, -1, 1, 3, 5};
     int arr2[] = {0, 1, 3, 5, 6};
-    int arr3[] = {-1, 0, 1, 2, 4 };
-    int arr4[] = {-1, 0, 1, 2, 5 };
+    int arr3[] = {-1, 0, 1, 2, 4};
+    int arr4[] = {-1, 0, 1, 2, 5};
     int arr5[] = {0};
     int arr6[] = {-1};
 

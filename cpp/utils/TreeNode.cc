@@ -2,6 +2,8 @@
 #include <iostream>
 #include "TreeNode.h"
 
+void PrintTreeHelper(const TreeNode* root, std::string prefix, bool is_left);
+
 void DestroyTree(TreeNode* root) {
     if (root == nullptr) {
         return;

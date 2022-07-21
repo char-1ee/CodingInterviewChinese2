@@ -50,7 +50,6 @@ int FindMissingNumber2(const int* arr, int length) {
     return -1;
 }
 
-
 void Test(string test_name, const int* arr, int length, int expected) {
     cout << "----- " << test_name << " -----\n";
 
