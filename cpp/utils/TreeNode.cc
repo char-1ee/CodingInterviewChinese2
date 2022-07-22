@@ -1,13 +1,11 @@
+#include "TreeNode.h"
 #include <cstdio>
 #include <iostream>
-#include "TreeNode.h"
 
 void PrintTreeHelper(const TreeNode* root, std::string prefix, bool is_left);
 
 void DestroyTree(TreeNode* root) {
-    if (root == nullptr) {
-        return;
-    }
+    if (root == nullptr) return;
 
     TreeNode* left_tree = root->left;
     TreeNode* right_tree = root->right;
@@ -17,6 +15,11 @@ void DestroyTree(TreeNode* root) {
 
     DestroyTree(left_tree);
     DestroyTree(right_tree);
+
+    // Another way:
+    // DestroyTree(root->left);
+    // DestroyTree(root->right);
+    // delete root;
 }
 
 void PrintTree(const TreeNode* root) {
@@ -33,9 +36,9 @@ void PrintTreeHelper(const TreeNode* root, std::string prefix, bool is_left) {
     }
 
     if (root->right != nullptr) {
-            std::string new_prefix = prefix + (is_left ? "    " : "   |");
-            PrintTreeHelper(root->right, new_prefix, true);
-        }
+        std::string new_prefix = prefix + (is_left ? "    " : "   |");
+        PrintTreeHelper(root->right, new_prefix, true);
+    }
 
     std::cout << prefix + (is_left ? "└── " : "┌── ") + std::to_string(root->val) + "\n";
 
