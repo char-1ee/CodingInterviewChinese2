@@ -15,7 +15,10 @@ void Swap(int* num1, int* num2) {
     *num2 = tmp;
 }
 
-// Random quick sort partition: reutrn the index whose element location can be determined
+// Random quick sort partition:
+// return the index of a random element in array, whose position is determined
+// if in that array sorted. Also, all elements before that element is less than it,
+// and all elements after that element is greater than it.
 int Partition(int arr[], int length, int start, int end) {
     if (arr == nullptr || length <= 0 || start < 0 || end >= length) {
         throw "Invalid parameters";
@@ -50,7 +53,7 @@ void PrintArray(int* arr, int length, int start, int end) {
         return;
     }
     for (int i = start; i <= end; ++i) {
-        printf("%d  ", &arr[i]);
+        printf("%d  ", arr[i]);
     }
     printf("\n");
 }

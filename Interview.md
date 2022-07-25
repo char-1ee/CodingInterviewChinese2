@@ -175,8 +175,6 @@ Refer to notes: quick sort, merge sort, shell sort, bucket sort
 ```c++
 vector<int> roots;
 vector<int> ranks;
-
-
 ```
 
 ### Past questions
@@ -949,8 +947,8 @@ Client create an instance of strategy class which apply flexibly according to ar
 - TCP/IP model (Application, Transport, Network, Network Interface)
 
   ```markdown
-       +-------------+-------------------------+
-          | Application |  HTTP, FTP, etc        |
+        +-------------+-------------------------+
+          | Application |  HTTP, FTP, etc         |
           +-------------+-------------------------+
           | Transport   |  TCP, UDP               |
           +-------------+-------------------------+
@@ -1065,7 +1063,7 @@ Client create an instance of strategy class which apply flexibly according to ar
 
 - **HTTP methods:**
 
-  ```
+  ```markdown
   GET（SELECT）：从服务器取出资源（一项或多项）。
   POST（CREATE）：在服务器新建一个资源。
   PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
@@ -1075,7 +1073,7 @@ Client create an instance of strategy class which apply flexibly according to ar
   OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。
   ```
 
-  ```
+  ```markdown
   GET /zoos：列出所有动物园
   POST /zoos：新建一个动物园
   GET /zoos/ID：获取某个指定动物园的信息
@@ -1088,7 +1086,7 @@ Client create an instance of strategy class which apply flexibly according to ar
 
 - **Filtering**:
 
-  ```
+  ```markdown
   ?limit=10：指定返回记录的数量
   ?offset=10：指定返回记录的开始位置。
   ?page=2&per_page=100：指定第几页，以及每页的记录数。
@@ -1103,25 +1101,25 @@ Client create an instance of strategy class which apply flexibly according to ar
 - **Protocol**: choose HTTPS as protocol between user and API.
 - **Domain**: as can as possible depoly under specific domain name.
 
-  ```
+  ```markdown
   https://api.example.com
   ```
 
   If API is simple enought that no further extension, then put them under main domain).
 
-  ```
+  ```markdown
   https://example.com/api
   ```
 
 - **Versioning**: put the API version number into URL.
 
-  ```
+  ```markdown
   https://api.example.com/v1/
   ```
 
 - **Endpoint**: API stands for a resource, so no verbs in URL, should be nouns. Also, the enpoints should match the column name in databaser tables and using plural nouns.
 
-  ```
+  ```markdown
   https://api.example.com/v1/zoos
   https://api.example.com/v1/animals
   https://api.example.com/v1/employees
@@ -1129,7 +1127,7 @@ Client create an instance of strategy class which apply flexibly according to ar
 
 ## Linux
 
-### [Zombie process &amp; Orphan process](https://zhuanlan.zhihu.com/p/363005905)
+### [Zombie process vs. Orphan process](https://zhuanlan.zhihu.com/p/363005905)
 
 In UNIX system, normally child process is created by parenrt process. The termination of child process is a asynchronous progess to its parent process, that is, parent process will never know when its child process terminates. When a process complete its job, its parent process must call `wait()` or `waitpid()` to get termination status of the child process.
 
@@ -1278,13 +1276,16 @@ So how to avoid such hazard? Zombie process is not the root of problem, but the 
 
 ## System design
 
-- How to maintain a login state in your app?
+### Maintain login status
 
-  1. Cookie + Session. Browser depended.
-  2. Security token. Initial login, post username and password to server, server generate a token, which includes user information used for unique authentication. Server sends back the token to client, client saves the token locally and every time includes the token (HTTP header) in request to server. We can set an expire period for the token.
+- Cookie + Session.
+- Security token.
+  - Initially login, client posts username and password to server, then server generates a token, which includes user information used for authentication. Server sends back the token to client, client saves the token locally and every time includes the token in HTTP request (HTTP header) to server. We also can set an expire period for the token.
+  - Token is stored in string, saving memory space for server. And it is relatively more secure. Even if it is hijacked during transmission, others cannot crack the content, and it reduces server pressure and frequent database queries.
 
-     Token is stored in string, save memory space for server. And it is relatively more secure. Even if it is hijacked during transmission, others cannot crack the content, and it reduces server pressure and frequent database queries.
-- How to design a login feature?
+### MQ
+
+[link1](https://zhuanlan.zhihu.com/p/52773169), [link2](https://www.zhihu.com/question/54152397/answer/1802083263)
 
 ## Logic problems
 

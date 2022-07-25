@@ -1,15 +1,13 @@
-#include <cstdio>
-#include <functional>
-#include <iostream>
-#include <queue>
-#include <set>
-#include <string>
-#include <vector>
+// Q40: Smallest k numbers
+// Description: given n integers, find the smallest k numbers among them.
+// Example: {4, 5, 1, 6, 2, 7, 3, 8} k = 4. Then return {1, 2, 3, 4}.
+
+#include <bits/stdc++.h>
 #include "utils/Array.h"
 
 using namespace std;
 
-// O(n), Partition()
+// O(n), Partition() + binary search
 void LeastKNumber_1(int arr[], int length, int k) {
     if (arr == nullptr || k > length || length < 1 || k < 1) {
         printf("Invalid input\n");
