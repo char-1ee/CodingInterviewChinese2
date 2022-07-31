@@ -49,7 +49,7 @@ int Partition(int arr[], int length, int start, int end) {
 }
 
 void PrintArray(int* arr, int length, int start, int end) {
-    if (arr == nullptr || length <= 0 || start <= 0 || end >= length || end < start) {
+    if (arr == nullptr || length <= 0 || start < 0 || end >= length || end < start) {
         return;
     }
     for (int i = start; i <= end; ++i) {
