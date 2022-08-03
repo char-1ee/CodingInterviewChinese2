@@ -5,7 +5,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Count sum of bit 1s in certain index in 32-bit integer.
+// Time O(n), space O(1)
 int FindNumberAppearOnce(int nums[], int length) {
     if (nums == nullptr || length < 1) {
         // throw "Invalid input.\n";
