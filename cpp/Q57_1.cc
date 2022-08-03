@@ -1,10 +1,11 @@
-// Q57: Sum of two numbers to s.
+// Q57_1: Two numbers sum to s.
 // Description: Given a increasing array and a number s, find two numbers in array such that their
 // sum equals to s. If there are mutiple pairs of numbers to s, return any of them.
 
 #include <bits/stdc++.h>
 using namespace std;
 
+// Sliding window, time O(n), space O(1)
 bool FindTwoNumbersToSum(int data[], int length, int s, int& num1, int& num2) {
     if (data == nullptr || length < 1) return false;
 
