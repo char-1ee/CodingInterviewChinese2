@@ -40,7 +40,7 @@ void PrintContinuousSequence1(int sum) {
 }
 
 // Solution 2: left ptr increase indicates to find next sequence,
-// right ptr increase indicates to adjust window size.
+// right ptr increase indicates to adjust window size, in current sequence.
 // In this way, it gurantees all answers can be iterated.
 void PrintContinuousSequence2(int sum) {
     if (sum < 3) return;
@@ -70,17 +70,17 @@ void PrintContinuousSequence2(int sum) {
 // Solution 3: math
 // x + (x + 1) + ... + (x + i - 1) == sum
 // i * x + i * (i - 1) / 2 == sum
-// x = target - i * (i - 1) / 2
+// tmp = i * x = target - i * (i - 1) / 2
 void PrintContinuousSequence3(int sum) {
     if (sum < 3) return;
 
     int i = 2; // sequence consists of i numbers
-    int x = numeric_limits<int>::max();
+    int tmp = numeric_limits<int>::max();
 
-    while (x > 0) {
-        x = sum - i * (i - 1) / 2;
-        if (x > 0 && x % i == 0) {
-            for (int base = x / i; base < x / i + i; base++) {
+    while (tmp > 0) {
+        tmp = sum - i * (i - 1) / 2;
+        if (tmp > 0 && tmp % i == 0) {
+            for (int base = tmp / i; base < tmp / i + i; base++) {
                 printf("%d ", base);
             }
             printf("\n");
