@@ -1,7 +1,7 @@
 // Q59_1: Maximum sliding window.
 // Description: Given a array and the size of sliding window, find the maximum elements in
 // every sliding window.
-// Example: {2, 3, 4, 2, 6, 2, 5, 1} and size = 3, then there are 6 windows. For 6 windows, each
+// Example: {2, 3, 4, 2, 6, 2, 5, 1} and k = 3, then there are 6 windows. For 6 windows, each
 // window max element is {4, 4, 6, 6, 6, 5}.
 
 #include <bits/stdc++.h>
