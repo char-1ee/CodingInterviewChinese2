@@ -15,22 +15,11 @@ void ReverseSentence(string& sentence) {
     Reverse(sentence, 0, len - 1);
 
     int start = 0, end = 0;
-    // for (int idx = 0; idx < len; ) {
-        // while (idx < len && sentence[idx++] == ' ')
-        //     ;
-        // start = idx;
-        // end = start;
-        // while (end < len && sentence[end++] != ' ')
-        //     ;
-        // Reverse(sentence, start, end - 1);
-        // idx = end;
-    // }
-
-    while (sentence[start] != ' ') {
+    while (start != len) {
         if (sentence[start] == ' ') {
             start++;
             end++;
-        } else if (sentence[end] == ' ' || end == len - 1) {
+        } else if (sentence[end] == ' ' || end == len) {
             Reverse(sentence, start, --end);
             start = ++end;
         } else {
