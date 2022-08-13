@@ -1,4 +1,4 @@
-// Q57_2: Continuous positive sequence sum to s.
+// Q57_2: Continuous Positive Sequences to Sum s.
 // Description: Given a positive number s, print out all continuous positive sequences
 // (contains at least 2 numbers) each that sums up to s.
 // Example: 1+2+3+4+5 = 4+5+6 = 7+8 = 15, so print {1, 2, 3, 4, 5}, {4, 5, 6}, {7, 8}

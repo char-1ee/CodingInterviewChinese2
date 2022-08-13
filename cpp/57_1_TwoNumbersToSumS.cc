@@ -1,4 +1,4 @@
-// Q57_1: Two numbers sum to s.
+// Q57_1: Two Numbers To Sum s.
 // Description: Given a increasing array and a number s, find two numbers in array such that their
 // sum equals to s. If there are mutiple pairs of numbers to s, return any of them.
 

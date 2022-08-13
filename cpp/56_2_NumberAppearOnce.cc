@@ -1,4 +1,4 @@
-// Q56_2: The number appears only once in array.
+// Q56_2: Number appears only once in array.
 // Description: An array element only appear once, while wll other elements appear exactly three
 // times. Fine that appear-once number in array.
 

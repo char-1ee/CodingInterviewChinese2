@@ -1,4 +1,4 @@
-// Q61: Poke straight.
+// Q61: Straight Card
 // Decription: Randomly pick out 5 or more cards from a set of poke and check whether they can be
 // arranged in a straight. Cards contains numbers of 2 - 10, A for 1, J for 11, Q for 12, K for 13.
 // Jockers can be regards as any number.

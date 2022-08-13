@@ -1,4 +1,4 @@
-// Q58_1: Reverse a sentence.
+// Q58_1: Reverse Words in Sentence.
 // Description: Given a sentence containing english words, invert the order of words but keep
 // letters in words not changed.
 // Example: "I am a student." -> "student. a am I"
