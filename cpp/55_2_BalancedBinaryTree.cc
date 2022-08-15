@@ -1,5 +1,5 @@
 // Q55: Balanced Binary Tree.
-// Description: Given a root node of a binary tree, tell if it is balanced tree.
+// Description: Given a root node of a binary tree, tell if it is height balanced.
 // Balanced tree is defined as its left subtree and righht subtree depth difference
 // not exceeds 1.
 
@@ -10,7 +10,8 @@ using namespace std;
 
 bool IsBalancedTreeCore(TreeNode* root, int* depth);
 
-bool IsBalancedTree(TreeNode* root) {
+// ===== Method 1 =====
+bool IsBalancedTree_Solution1(TreeNode* root) {
     int depth = 0;
     return IsBalancedTreeCore(root, &depth);
 }
@@ -36,11 +37,32 @@ bool IsBalancedTreeCore(TreeNode* root, int* depth) {
     return false;
 }
 
+// ===== Method 2 =====
+int Depth(TreeNode* root) {
+    if (!root) return 0;
+    return 1 + max(Depth(root->left), Depth(root->right));
+}
+
+bool IsBalancedTree_Solution2(TreeNode* root) {
+    if (!root) return true;
+    if (abs(Depth(root->left) - Depth(root->right)) <= 1) {
+        return false;
+    }
+    return IsBalancedTree_Solution2(root->right) && IsBalancedTree_Solution2(root->left);
+}
+
+// ===== Test =====
 void Test(const char* test_name, TreeNode* root, bool expected) {
-    if (IsBalancedTree(root) == expected) {
-        printf("%s: Passed.\n", test_name);
+    if (IsBalancedTree_Solution1(root) == expected) {
+        printf("Solution 1: Passed.\n");
     } else {
-        printf("%s: FAILED.\n", test_name);
+        printf("Solution 1: FAILED.\n");
+    }
+
+    if (IsBalancedTree_Solution2(root) == expected) {
+        printf("Solution 1: Passed.\n");
+    } else {
+        printf("Solution 1: FAILED.\n");
     }
 }
 
@@ -55,7 +77,7 @@ void Test1() {
     TreeNode* n1 = new TreeNode(1, n2, n3);
 
     Test("Test 1", n1, true);
-    DestroyTree(n1);
+    // DestroyTree(n1);
 }
 
 void Test2() {
@@ -67,7 +89,7 @@ void Test2() {
     TreeNode* n1 = new TreeNode(1, n2, n3);
 
     Test("Test 2", n1, false);
-    DestroyTree(n1);
+    // DestroyTree(n1);
 }
 
 void Test3() {
@@ -78,14 +100,14 @@ void Test3() {
     TreeNode* n1 = new TreeNode(1, nullptr, n2);
 
     Test("Test 3", n1, false);
-    DestroyTree(n1);
+    // DestroyTree(n1);
 }
 
 void Test4() {
     TreeNode* n1 = new TreeNode(1);
 
     Test("Test 3", n1, true);
-    DestroyTree(n1);
+    // DestroyTree(n1);
 }
 
 void Test5() {

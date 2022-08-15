@@ -1,4 +1,4 @@
-// Q53_3: The element equals to its index in array.
+// Q53_3: The array integer equals to its index 
 // Description: Given a strictly ascending array, every element in the array is unique and integer.
 // Please write a function that find any of element whose value is equals to its index.
 // Example: {-3, -1, 1, 3, 5}, return 3.

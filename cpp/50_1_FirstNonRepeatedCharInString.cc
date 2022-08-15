@@ -1,4 +1,4 @@
-// Q50_1: first character only appear once in string
+// Q50_1: First non-repeating number
 // Description: find the first non-repeating character in a given string,
 // given string only contains 8-bit char type elements (-127 - 127).
 // Example: s = "abaccdeff", return 'b'

@@ -1,4 +1,4 @@
-// Q53: Find a number's occurences in a sorted array.
+// Q53: Count a number's occurences in a sorted array.
 // Description: Count number of occurences of a given number in a sorted array.
 // Example: {1, 2, 3, 3, 3, 4, 5} and number 3, return 3.
 

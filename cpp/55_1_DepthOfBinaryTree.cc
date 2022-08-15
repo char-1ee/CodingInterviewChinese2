@@ -1,4 +1,4 @@
-// Q55: Tree depth.
+// Q55: Depth of Binary Tree
 // Description: Given a root of a binary tree, find the depth of the tree.
 // The distance from root to leaf node is regarded as a path. Longest path is its depth.
 

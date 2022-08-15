@@ -1,4 +1,4 @@
-// Q51: inversion pair in array
+// Q51: Inversion pairs in array
 // Description: given an array, return the count of inversion pairs
 // (a[x], a[y]) in which x < y and a[x] > a[y] in array.
 // Example: {7, 5, 6, 4}, (7,6), (7,5), (7,4), (6,4), (5,4), return 5.
