@@ -1,3 +1,6 @@
+// Q41: Median number in a data stream.
+// Read median from a data stream.
+
 #include <algorithm>
 #include <cstdio>
 #include <functional>

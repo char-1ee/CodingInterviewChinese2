@@ -1,3 +1,8 @@
+// Q45: Combine array elements to a minimum number.
+// Description: Given a positive integer array, combine all its elements into a number such that the
+// number is the smallest among such permutations.
+// Example: {3, 32, 321} return 321332.
+
 #include <bits/stdc++.h>
 
 using namespace std;

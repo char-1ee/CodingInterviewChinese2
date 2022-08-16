@@ -1,5 +1,5 @@
-// Maximum subarray: Given an int array, containing positives and negatives.
-// Find the max sum among all sums of subarrays.
+// Q42: Maximum subarray: Given an int array, containing positives and negatives.
+// Description: Find the max sum among all sums of subarrays.
 // Subarray includes one or more sequential integers in array.
 // Time constraints: O(n)
 

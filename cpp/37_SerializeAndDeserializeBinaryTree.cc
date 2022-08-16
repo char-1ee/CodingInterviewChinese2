@@ -1,4 +1,5 @@
-// Serialize and deserialize a binary tree
+// Q37: Serialize and deserialize a binary tree.
+// Implement two functions to serialize and deserialize a binary tree.
 
 #include <cstdio>
 #include <iostream>

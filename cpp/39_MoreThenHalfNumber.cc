@@ -1,4 +1,4 @@
-// Q39: Array element appears more than half time.
+// Q39: Array element appears more than a half time.
 // Given an array with length n, find the number which appears more than n/2 times.
 // Error handling: exit 0
 // Input array can be modified or not.

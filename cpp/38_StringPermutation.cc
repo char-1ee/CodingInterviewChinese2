@@ -1,4 +1,6 @@
-// permutation of string
+// Q38: permutation of string
+// Description: Given a string, print out all its permutations by its characters.
+// Example: string abc, permutations: abc, acb, bac, bca, cab, cba.
 // backtracking: for a sub problem/problem, swap the beginning char with all chars
 // after itself to get new permutations.
 

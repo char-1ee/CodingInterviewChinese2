@@ -1,3 +1,7 @@
+// Q43: Occurrences of digit 1 in 1 to n.
+// Given an integer n, count orrurrence of digit 1 in n decimal integers 1 ~ n.
+// example: n = 12, integers contains digit 1 from 1 ~ 12 are: 1, 10, 11, 12. Then return 5.
+
 #include <bits/stdc++.h>
 
 using namespace std;

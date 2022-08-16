@@ -1,3 +1,9 @@
+// Q46: Translate number into string
+// Description: Given a number, translate it to string according to the rules: 0->a, 1->b, ...
+// 11->l, ... , 25->z. A number may have various translations. For example, 12258 has 5
+// translations, "bccfi", "bwfi", "bczi", "mcfi", "mzi". Please implement a function to computer how
+// many translations are there for a number.
+
 #include <bits/stdc++.h>
 
 using namespace std;
