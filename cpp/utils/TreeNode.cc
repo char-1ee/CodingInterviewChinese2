@@ -47,3 +47,13 @@ void PrintTreeHelper(const TreeNode* root, std::string prefix, bool is_left) {
         PrintTreeHelper(root->left, new_prefix, false);
     }
 }
+
+Node* CreateTreeNode(int val) {
+    Node* node = new Node();
+    node->val = val;
+    return node;
+}
+
+void ConnectTreeNodes(Node* root, Node* child) {
+    if (root) root->children.push_back(child);
+}
