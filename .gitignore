@@ -35,6 +35,7 @@
 *.dylib
 
 # Executables
+a
 *.exe
 *.out
 *.app
@@ -70,3 +71,4 @@ replay_pid*
 # vscode
 .vscode 
 .vs
+.clang-format
